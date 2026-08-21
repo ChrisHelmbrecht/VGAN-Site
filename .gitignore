@@ -1,0 +1,10 @@
+# OS junk
+.DS_Store
+Thumbs.db
+*.log
+
+# never commit real DB credentials — keep them server-side only
+config.local.php
+
+# local scratch
+/tmp/

@@ -1,0 +1,81 @@
+/* VGAN store finder — reads window.STORES (injected by PHP) */
+(function(){
+  const STORES = window.STORES || [];
+  const map=L.map('map',{zoomControl:true,attributionControl:false}).setView([39.5,-98.35],4);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd'}).addTo(map);
+
+  const pinIcon=L.divIcon({className:'',html:'<div class="pin"></div>',iconSize:[14,14],iconAnchor:[7,7]});
+  const youIcon=L.divIcon({className:'',html:'<div class="you"></div>',iconSize:[16,16],iconAnchor:[8,8]});
+
+  let userLoc=null;
+  const resultsEl=document.getElementById('results');
+  const headEl=document.getElementById('listHead');
+  const stSel=document.getElementById('st');
+
+  const gmaps=s=>'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(s.a+', '+s.c+', '+s.s+' '+s.z);
+  function miles(a,b){const R=3958.8,dLat=(b.lat-a.lat)*Math.PI/180,dLng=(b.lng-a.lng)*Math.PI/180,la1=a.lat*Math.PI/180,la2=b.lat*Math.PI/180;const h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;return R*2*Math.asin(Math.sqrt(h));}
+
+  STORES.forEach((s,i)=>{
+    const m=L.marker([s.lat,s.lng],{icon:pinIcon});
+    m.bindPopup('<span class="pnm">'+s.n+'</span>'+s.a+'<br>'+s.c+', '+s.s+' '+s.z+(s.p?'<br>'+s.p:'')+'<br><a href="'+gmaps(s)+'" target="_blank" rel="noopener">Directions &rarr;</a>');
+    s._m=m; s._i=i;
+  });
+  const layer=L.layerGroup(STORES.map(s=>s._m)).addTo(map);
+
+  [...new Set(STORES.map(s=>s.s))].sort().forEach(st=>{
+    const o=document.createElement('option');o.value=st;
+    o.textContent=st+' ('+STORES.filter(s=>s.s===st).length+')';stSel.appendChild(o);
+  });
+
+  function filtered(){
+    const q=document.getElementById('q').value.trim().toLowerCase(), st=stSel.value;
+    let arr=STORES.filter(s=>{
+      if(st&&s.s!==st)return false;
+      if(q&&!(s.n+' '+s.c+' '+s.s+' '+s.z).toLowerCase().includes(q))return false;
+      return true;
+    });
+    if(userLoc)arr.forEach(s=>s._d=miles(userLoc,s));
+    arr.sort(userLoc?(a,b)=>a._d-b._d:(a,b)=>a.s.localeCompare(b.s)||a.c.localeCompare(b.c)||a.n.localeCompare(b.n));
+    return arr;
+  }
+
+  function render(){
+    const arr=filtered();
+    headEl.textContent=(userLoc?'Nearest first — ':'')+arr.length+' stockist'+(arr.length!==1?'s':'')+(stSel.value?' in '+stSel.value:'');
+    layer.clearLayers(); arr.forEach(s=>layer.addLayer(s._m));
+    if(!arr.length){resultsEl.innerHTML='<div class="empty">No stockists match that search.<br>Try a nearby city, a different state, or clear the filters.</div>';return;}
+    const show=userLoc?arr.slice(0,40):arr;
+    resultsEl.innerHTML=show.map(s=>{
+      const d=userLoc?'<span class="dist">'+s._d.toFixed(1)+' mi</span>':'';
+      return '<div class="card" data-i="'+s._i+'"><div class="nm">'+s.n+'</div>'
+        +'<div class="ad">'+s.a+'<br>'+s.c+', '+s.s+' '+s.z+'</div>'
+        +'<div class="meta">'+d+(s.p?'<a class="link" href="tel:'+s.p.replace(/[^0-9+]/g,'')+'">'+s.p+'</a>':'')
+        +'<a class="link" href="'+gmaps(s)+'" target="_blank" rel="noopener">Directions</a></div></div>';
+    }).join('');
+    if(userLoc&&arr.length>40)resultsEl.innerHTML+='<div class="empty">Showing the 40 closest of '+arr.length+'. Filter by state to see more.</div>';
+    [...resultsEl.querySelectorAll('.card')].forEach(c=>c.addEventListener('click',()=>{
+      const s=STORES[+c.dataset.i];
+      map.setView([s.lat,s.lng],12,{animate:true}); s._m.openPopup();
+      resultsEl.querySelectorAll('.card').forEach(x=>x.classList.remove('active')); c.classList.add('active');
+    }));
+  }
+  function fit(){const arr=filtered();if(!arr.length)return;map.fitBounds(L.featureGroup(arr.map(s=>s._m)).getBounds().pad(.2),{maxZoom:userLoc?11:6});}
+
+  document.getElementById('q').addEventListener('input',render);
+  stSel.addEventListener('change',()=>{render();fit();});
+  document.getElementById('locBtn').addEventListener('click',function(){
+    const b=this;
+    if(!navigator.geolocation){alert('Location isn\'t available here. Search by city or ZIP instead.');return;}
+    b.textContent='Locating…';
+    navigator.geolocation.getCurrentPosition(pos=>{
+      userLoc={lat:pos.coords.latitude,lng:pos.coords.longitude};
+      L.marker([userLoc.lat,userLoc.lng],{icon:youIcon,zIndexOffset:1000}).addTo(map);
+      b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Located — nearest first';
+      render();
+      const near=filtered().slice(0,8).map(s=>s._m);
+      if(near.length)map.fitBounds(L.featureGroup([...near,L.marker([userLoc.lat,userLoc.lng])]).getBounds().pad(.25),{maxZoom:11});
+    },()=>{b.textContent='Use my location';alert('Couldn\'t get your location. Allow location access, or search by city or ZIP.');},
+    {enableHighAccuracy:true,timeout:8000});
+  });
+  render();
+})();

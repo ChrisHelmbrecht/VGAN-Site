@@ -1,0 +1,88 @@
+<?php
+/* Per-SKU nutrition + ingredients.
+   Nutrition: US master sheet (per 1/2 bar, 35 g).
+   Ingredients: reconstructed from the sheet's numeric ingredient codes.
+   >> VERIFY against pack before launch (esp. salt/caramel items & order). <<
+   Matcha & Lemon and White have no US nutritionals in the master sheet yet. */
+return [
+  'Creamy Melt' => [
+    'available' => true,
+    'serving' => 'Serving size (1/2 bar, 35 g)',
+    'energy' => '200 kcal', 'fat' => '14 g', 'sat' => '10 g',
+    'carbs' => '19 g', 'sugars' => '14 g', 'added' => '14 g',
+    'protein' => '2 g', 'fiber' => '2 g', 'sodium' => '15 mg',
+    'calcium' => '29.2 mg', 'iron' => '0.485 mg', 'potassium' => '92 mg', 'caffeine' => '',
+    'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
+    'ingredients' => 'Organic cane sugar, organic cocoa liquor, organic cocoa butter, organic oat milk powder, organic coconut milk powder, sunflower lecithin, bourbon vanilla',
+  ],
+  'Pink Love' => [
+    'available' => true,
+    'serving' => 'Serving size (1/2 bar, 35 g)',
+    'energy' => '210 kcal', 'fat' => '15 g', 'sat' => '8 g',
+    'carbs' => '18 g', 'sugars' => '12 g', 'added' => '12 g',
+    'protein' => '2 g', 'fiber' => '2 g', 'sodium' => '85 mg',
+    'calcium' => '41.6 mg', 'iron' => '0.17 mg', 'potassium' => '81.7 mg', 'caffeine' => '',
+    'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
+    'ingredients' => 'Organic cane sugar, organic cocoa butter, organic coconut milk powder, organic almonds, organic oat milk powder, freeze-dried raspberries, sea salt, sunflower lecithin, bourbon vanilla',
+  ],
+  'Salty Almonds' => [
+    'available' => true,
+    'serving' => 'Serving size (1/2 bar, 35 g)',
+    'energy' => '210 kcal', 'fat' => '15 g', 'sat' => '10 g',
+    'carbs' => '19 g', 'sugars' => '14 g', 'added' => '14 g',
+    'protein' => '2 g', 'fiber' => '3 g', 'sodium' => '80 mg',
+    'calcium' => '35 mg', 'iron' => '0.5 mg', 'potassium' => '141 mg', 'caffeine' => '',
+    'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
+    'ingredients' => 'Organic cane sugar, organic cocoa liquor, organic cocoa butter, organic oat milk powder, organic almonds, organic coconut milk powder, sea salt, sunflower lecithin, bourbon vanilla',
+  ],
+  'Salty Caramel' => [
+    'available' => true,
+    'serving' => 'Serving size (1/2 bar, 35 g)',
+    'energy' => '210 kcal', 'fat' => '15 g', 'sat' => '9 g',
+    'carbs' => '17 g', 'sugars' => '13 g', 'added' => '13 g',
+    'protein' => '2 g', 'fiber' => '1 g', 'sodium' => '85 mg',
+    'calcium' => '17 mg', 'iron' => '0.1 mg', 'potassium' => '160 mg', 'caffeine' => '',
+    'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
+    'ingredients' => 'Organic coconut sugar, organic cocoa butter, organic coconut milk powder, organic almonds, organic oat milk powder, sea salt, sunflower lecithin',
+  ],
+  'Dark' => [
+    'available' => true,
+    'serving' => 'Serving size (1/2 bar, 35 g)',
+    'energy' => '210 kcal', 'fat' => '15 g', 'sat' => '10 g',
+    'carbs' => '17 g', 'sugars' => '11 g', 'added' => '11 g',
+    'protein' => '3 g', 'fiber' => '4 g', 'sodium' => '10 mg',
+    'calcium' => '34.55 mg', 'iron' => '0.745 mg', 'potassium' => '173.5 mg', 'caffeine' => '',
+    'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
+    'ingredients' => 'Organic cocoa liquor, organic cane sugar, organic cocoa butter, sunflower lecithin, bourbon vanilla',
+  ],
+  'Matcha & Lemon' => [
+    'available' => false,
+    'serving' => 'Serving size (1/2 bar, 35 g)',
+    'energy' => '', 'fat' => '', 'sat' => '',
+    'carbs' => '', 'sugars' => '', 'added' => '',
+    'protein' => '', 'fiber' => '', 'sodium' => '',
+    'calcium' => '', 'iron' => '', 'potassium' => '', 'caffeine' => '',
+    'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
+    'ingredients' => 'Organic cane sugar, organic cocoa butter, organic oat milk powder, organic coconut milk powder, sunflower lecithin, bourbon vanilla, organic matcha powder, organic lemon oil',
+  ],
+  'White' => [
+    'available' => false,
+    'serving' => 'Serving size (1/2 bar, 35 g)',
+    'energy' => '', 'fat' => '', 'sat' => '',
+    'carbs' => '', 'sugars' => '', 'added' => '',
+    'protein' => '', 'fiber' => '', 'sodium' => '',
+    'calcium' => '', 'iron' => '', 'potassium' => '', 'caffeine' => '',
+    'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
+    'ingredients' => 'Organic cane sugar, organic cocoa butter, organic oat milk powder, organic coconut milk powder, sunflower lecithin, bourbon vanilla',
+  ],
+  'Coffee Beans' => [
+    'available' => true,
+    'serving' => 'Serving size (1/2 bar, 35 g)',
+    'energy' => '200 kcal', 'fat' => '14 g', 'sat' => '9 g',
+    'carbs' => '19', 'sugars' => '14 g', 'added' => '14 g',
+    'protein' => '2 g', 'fiber' => '3 g', 'sodium' => '10 mg',
+    'calcium' => '27.8 mg', 'iron' => '0.46 mg', 'potassium' => '88 mg', 'caffeine' => '7.4 mg',
+    'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
+    'ingredients' => 'Organic cane sugar, organic cocoa liquor, organic cocoa butter, organic oat milk powder, organic almonds, organic coconut milk powder, roasted coffee beans, sunflower lecithin, bourbon vanilla',
+  ],
+];
