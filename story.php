@@ -16,7 +16,6 @@ include __DIR__.'/partials/header.php';
     <p class="lede">VGAN started in Norway with a stubborn idea: that plant-based chocolate didn't have to apologise for itself. Not "good, for vegan chocolate." Just good chocolate — premium, organic, and made without a drop of dairy.</p>
     <p>We come from a world of snow, boards and open air, where doing things your own way is the whole point. That free-thinking spirit is baked into everything we make: bright, saturated, a little loud, and unmistakably ours. We call it <strong>Joyful Rebellion</strong> — indulgence without the guilt trip, and none of the beige.</p>
     <p>Today our bars are moving from Norway into the US, landing on shelves across the country and picking up a following far beyond the vegan aisle — with people who simply want better chocolate, sourced better. That's the whole idea, and we're only getting started.</p>
-    <a class="btn" <?= ext('https://vganchocolate.com/pages/about-vgan') ?>>Read the full story</a>
   </div>
 </section>
 

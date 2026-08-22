@@ -13,7 +13,7 @@ return [
     'protein' => '2 g', 'fiber' => '2 g', 'sodium' => '15 mg',
     'calcium' => '29.2 mg', 'iron' => '0.485 mg', 'potassium' => '92 mg', 'caffeine' => '',
     'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
-    'ingredients' => 'Organic cane sugar, organic cocoa liquor, organic cocoa butter, organic oat milk powder, organic coconut milk powder, sunflower lecithin, bourbon vanilla',
+    'ingredients' => 'Organic raw cane sugar, cocoa mass, cocoa butter, coconut cream, oat milk powder (oat flour, salt), sunflower lecithin, bourbon vanilla',
   ],
   'Pink Love' => [
     'available' => true,
@@ -23,7 +23,7 @@ return [
     'protein' => '2 g', 'fiber' => '2 g', 'sodium' => '85 mg',
     'calcium' => '41.6 mg', 'iron' => '0.17 mg', 'potassium' => '81.7 mg', 'caffeine' => '',
     'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
-    'ingredients' => 'Organic cane sugar, organic cocoa butter, organic coconut milk powder, organic almonds, organic oat milk powder, freeze-dried raspberries, sea salt, sunflower lecithin, bourbon vanilla',
+    'ingredients' => 'Organic raw cane sugar, cocoa butter, oat milk powder (oat flour, salt), coconut cream, almonds, freeze-dried raspberries, sea salt, sunflower lecithin, bourbon vanilla',
   ],
   'Salty Almonds' => [
     'available' => true,
@@ -33,7 +33,7 @@ return [
     'protein' => '2 g', 'fiber' => '3 g', 'sodium' => '80 mg',
     'calcium' => '35 mg', 'iron' => '0.5 mg', 'potassium' => '141 mg', 'caffeine' => '',
     'allergens' => 'Almonds, hazelnuts, pistachio, cashew, peanuts, sesame',
-    'ingredients' => 'Organic cane sugar, organic cocoa liquor, organic cocoa butter, organic oat milk powder, organic almonds, organic coconut milk powder, sea salt, sunflower lecithin, bourbon vanilla',
+    'ingredients' => 'Organic raw cane sugar, cocoa mass, cocoa butter, coconut cream, almonds, oat milk powder (oat flour, salt), sea salt, sunflower lecithin, bourbon vanilla',
   ],
   'Salty Caramel' => [
     'available' => true,

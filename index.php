@@ -33,6 +33,16 @@ include __DIR__.'/partials/header.php';
   </div>
 </section>
 
+<!-- ============ DESIGNED IN NORWAY ============ -->
+<section class="norway-cred">
+  <div class="wrap">
+    <div class="norway-badge">
+      <span>Designed and<br>Developed in<br>Norway</span>
+      <?= img_or_placeholder('Flag_of_Norway.png','Norway','NORWAY','#17264a','#fff') ?>
+    </div>
+  </div>
+</section>
+
 <!-- ============ THE 8 BARS ============ -->
 <section id="bars" class="section">
   <div class="wrap">

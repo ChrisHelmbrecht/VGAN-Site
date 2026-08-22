@@ -33,9 +33,9 @@ define('DB_PASS', '');
 
 /* ---- THE 8 BARS ------------------------------------------- */
 $SKUS = [
-  ['name'=>'Creamy Melt',   'desc'=>'Smooth m*lk-style, almonds', 'cocoa'=>44, 'img'=>'SKU-CreamyMelt.png',  'color'=>'#F5C542', 'taste'=>'Velvety and mellow — a slow, milky melt with soft cocoa warmth and a whisper of roasted almond.'],
-  ['name'=>'Pink Love',     'desc'=>'Almonds & raspberry',        'cocoa'=>30, 'img'=>'SKU-pinklove.png',    'color'=>'#E6337F', 'taste'=>'Bright and playful — creamy white cocoa butter lifted by tart raspberry and a crunch of almond.'],
-  ['name'=>'Salty Almonds', 'desc'=>'Roasted almonds, sea salt',  'cocoa'=>44, 'img'=>'SKU-saltalmonds.png', 'color'=>'#6FB7E6', 'taste'=>'Sweet-and-salty done right — roasted almonds and flaky sea salt against a smooth, creamy melt.'],
+  ['name'=>'Creamy Melt',   'desc'=>'Smooth m*lk-style, almonds', 'cocoa'=>44, 'img'=>'newdesign-creamymelt.png',  'color'=>'#F5C542', 'taste'=>'Velvety and mellow — a slow, milky melt with soft cocoa warmth and a whisper of roasted almond.'],
+  ['name'=>'Pink Love',     'desc'=>'Almonds & raspberry',        'cocoa'=>35, 'img'=>'newdesign-pinklove.png',    'color'=>'#E6337F', 'taste'=>'Bright and playful — creamy white cocoa butter lifted by tart raspberry and a crunch of almond.'],
+  ['name'=>'Salty Almonds', 'desc'=>'Roasted almonds, sea salt',  'cocoa'=>44, 'img'=>'newdesign-saltyalmonds.png', 'color'=>'#6FB7E6', 'taste'=>'Sweet-and-salty done right — roasted almonds and flaky sea salt against a smooth, creamy melt.'],
   ['name'=>'Salty Caramel', 'desc'=>'Almonds & salty caramel',    'cocoa'=>33, 'img'=>'SKU-SaltyCaramel.png','color'=>'#D2691E', 'taste'=>'Golden and indulgent — buttery caramel, a pinch of sea salt and toasted almond over a silky base.'],
   ['name'=>'Dark',          'desc'=>'Deep & intense',             'cocoa'=>70, 'img'=>'SKU-Dark.png',        'color'=>'#3A2318', 'taste'=>'Deep and grown-up — rich roasted cocoa with a gentle bitter edge and a long, clean finish.'],
   ['name'=>'Matcha & Lemon','desc'=>'Jamie Anderson signature',   'cocoa'=>36, 'img'=>'SKU-MatchaJamie.png', 'color'=>'#8FB43A', 'taste'=>'Fresh and unexpected — grassy matcha and a citrus lift over a creamy white base.'],
@@ -83,35 +83,30 @@ $SUSTAIN = [
 /* Only shows if certified === true. Never display uncertified. */
 $BCORP = [
   'certified' => true,       // CONFIRM certification is active
-  'badge'     => 'bcorp.png', // badge/logo file in assets/img/
+  'badge'     => 'Logo_bcorp.png', // badge/logo file in assets/img/
 ];
 
 /* ---- NEW PACKAGE DESIGNS (banner in the bars section) ----- */
 $NEWDESIGNS = [
   'headline' => 'SAME CHOCOLATE. BOLDER SKIN.',
   'intro'    => 'We never sit still. Our bars are slipping into fresh new packaging — same damn-delicious recipe inside, a little more joyful rebellion outside.',
-  'images'   => ['newdesign-1.png','newdesign-2.png','newdesign-3.png'],
+  'images'   => ['newdesign-saltyalmonds.png','newdesign-pinklove.png','newdesign-creamymelt.png'],
 ];
 
 /* ---- TRUST BAR (badges under hero; drop your PNGs in assets/img/) ---- */
 $TRUSTBAR = [
-  ['label'=>'USDA Organic', 'img'=>'trust-organic.png'],
-  ['label'=>'Vegan',        'img'=>'trust-vegan.png'],
-  ['label'=>'Gluten-Free',  'img'=>'trust-glutenfree.png'],
-  ['label'=>'Non-GMO',      'img'=>'trust-nongmo.png'],
-  ['label'=>'Dairy-Free',   'img'=>'trust-dairyfree.png'],
-  ['label'=>'Certified B Corp', 'img'=>'trust-bcorp.png'],
+  ['label'=>'USDA Organic',     'img'=>'Logo_USDA.png'],
+  ['label'=>'Vegan',            'img'=>'Logo_TheVeganSociety.png'],
+  ['label'=>'Dairy-Free',       'img'=>'Logo_dairyfree.png'],
+  ['label'=>'Certified B Corp', 'img'=>'Logo_bcorp.png'],
 ];
 
 /* ---- RETAILERS (logos you swap in as retailer-*.png) ------ */
 $RETAILERS = [
-  ['name'=>'Hy-Vee',    'img'=>'retailer-hyvee.png'],
-  ['name'=>'Sprouts',   'img'=>'retailer-sprouts.png'],
-  ['name'=>'Giant',     'img'=>'retailer-giant.png'],
-  ['name'=>"Raley's",   'img'=>'retailer-raleys.png'],
-  ['name'=>'WHSmith',   'img'=>'retailer-whsmith.png'],
-  ['name'=>"Woodman's", 'img'=>'retailer-woodmans.png'],
-  ['name'=>'Amazon',    'img'=>'retailer-amazon.png'],
+  ['name'=>'Hy-Vee',  'img'=>'Retail_Hy-Vee.png'],
+  ['name'=>'KeHE',    'img'=>'Retail_KeHE.png'],
+  ['name'=>'UNFI',    'img'=>'Retail_UNFI.png'],
+  ['name'=>'WHSmith', 'img'=>'Retailer_WHSmith_North_America_Logo_1.png'],
 ];
 
 /* ---- SOCIAL PROOF (SocialNature campaign aggregate) ------- */
