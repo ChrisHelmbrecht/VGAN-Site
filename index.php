@@ -24,24 +24,18 @@ include __DIR__.'/partials/header.php';
 <!-- ============ TRUST BAR ============ -->
 <section class="trustbar">
   <div class="wrap trustbar-inner">
+    <div class="norway-item">
+      <span>Designed and<br>Developed in<br>Norway</span>
+      <?= img_or_placeholder('Flag_of_Norway.png','Norway','NO','#17264a','#fff') ?>
+    </div>
     <?php foreach($TRUSTBAR as $b): ?>
       <div class="trust-item" title="<?= e($b['label']) ?>">
         <?= img_or_placeholder($b['img'],$b['label'],e($b['label']),'transparent','#FF1493') ?>
-        <span><?= e($b['label']) ?></span>
       </div>
     <?php endforeach; ?>
   </div>
 </section>
 
-<!-- ============ DESIGNED IN NORWAY ============ -->
-<section class="norway-cred">
-  <div class="wrap">
-    <div class="norway-badge">
-      <span>Designed and<br>Developed in<br>Norway</span>
-      <?= img_or_placeholder('Flag_of_Norway.png','Norway','NORWAY','#17264a','#fff') ?>
-    </div>
-  </div>
-</section>
 
 <!-- ============ THE 8 BARS ============ -->
 <section id="bars" class="section">
@@ -192,7 +186,7 @@ include __DIR__.'/partials/header.php';
 <!-- ============ RETAILERS ============ -->
 <section class="retailers">
   <div class="wrap">
-    <div class="eyebrow accent" style="text-align:center">FIND US AT</div>
+    <div class="retailers-head"><div class="eyebrow accent">STOCKED AT</div><h2>FIND US AT</h2></div>
     <div class="retailer-row">
       <?php foreach($RETAILERS as $r): ?>
         <div class="retailer" title="<?= e($r['name']) ?>">

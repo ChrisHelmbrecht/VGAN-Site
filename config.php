@@ -47,10 +47,10 @@ $SKUS = [
 $AMBASSADORS = [
   ['name'=>'Jamie Anderson','role'=>'Olympic snowboarder','img'=>'AMBASSADOR-JamieAnderson_NewZealand2025.jpg',
    'line'=>'Two-time Olympic gold medallist and the face of our Matcha & Lemon signature bar.',
-   'url'=>'https://vganchocolate.com/pages/jamie-anderson'],
+   'url'=>''],
   ['name'=>'Terje Håkonsen','role'=>'Snowboarding legend','img'=>'AMBASSADOR-TERJE-HAAKONSEN.jpg',
    'line'=>'The Norwegian pioneer who rewrote the rules — and shares our free-thinking roots.',
-   'url'=>'https://vganchocolate.com/pages/terje-haakonsen'],
+   'url'=>''],
   ['name'=>'Pump for Peace','role'=>'Rider development','img'=>'AMBASSADOR-PumpForPeace3.jpg',
    'line'=>'Giving young riders in Southern Africa a track, a bike and a shot.',
    'url'=>''],
@@ -99,6 +99,8 @@ $TRUSTBAR = [
   ['label'=>'Vegan',            'img'=>'Logo_TheVeganSociety.png'],
   ['label'=>'Dairy-Free',       'img'=>'Logo_dairyfree.png'],
   ['label'=>'Certified B Corp', 'img'=>'Logo_bcorp.png'],
+  ['label'=>'Gluten-Free',      'img'=>'Logo_GlutenFree.png'],
+  ['label'=>'GMO-Free',         'img'=>'Logo_GMOFree.png'],
 ];
 
 /* ---- RETAILERS (logos you swap in as retailer-*.png) ------ */
