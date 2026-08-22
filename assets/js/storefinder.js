@@ -61,7 +61,20 @@
   }
   function fit(){const arr=filtered();if(!arr.length)return;map.fitBounds(L.featureGroup(arr.map(s=>s._m)).getBounds().pad(.2),{maxZoom:userLoc?11:6});}
 
-  document.getElementById('q').addEventListener('input',render);
+  let _qt;
+  document.getElementById('q').addEventListener('input',function(){
+    render();
+    clearTimeout(_qt);
+    _qt=setTimeout(function(){
+      const q=document.getElementById('q').value.trim();
+      const arr=filtered();
+      if(q&&arr.length){
+        map.fitBounds(L.featureGroup(arr.map(s=>s._m)).getBounds().pad(.3),{maxZoom:userLoc?12:13});
+      } else if(!q&&!stSel.value){
+        map.setView([39.5,-98.35],4);
+      }
+    },350);
+  });
   stSel.addEventListener('change',()=>{render();fit();});
   document.getElementById('locBtn').addEventListener('click',function(){
     const b=this;
