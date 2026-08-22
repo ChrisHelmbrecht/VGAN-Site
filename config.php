@@ -97,8 +97,8 @@ $NEWDESIGNS = [
 $TRUSTBAR = [
   ['label'=>'USDA Organic',     'img'=>'Logo_USDA.png'],
   ['label'=>'Vegan',            'img'=>'Logo_TheVeganSociety.png'],
-  ['label'=>'Dairy-Free',       'img'=>'Logo_dairyfree.png'],
   ['label'=>'Certified B Corp', 'img'=>'Logo_bcorp.png'],
+  ['label'=>'Dairy-Free',       'img'=>'Logo_dairyfree.png'],
   ['label'=>'Gluten-Free',      'img'=>'Logo_GlutenFree.png'],
   ['label'=>'GMO-Free',         'img'=>'Logo_GMOFree.png'],
 ];

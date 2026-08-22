@@ -15,12 +15,14 @@
 <body>
 <header class="topbar"><div class="wrap">
   <a class="brand" href="index.php"><?= logo_html() ?></a>
-  <nav class="nav">
+  <button class="navtoggle" id="navtoggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <span class="eyebrow"><?= strtoupper(e($BRAND['tagline'])) ?></span>
+  <nav class="nav" id="nav">
     <a href="index.php#bars">Bars</a>
     <a href="story.php">Story</a>
     <a href="environment.php">Sustainability</a>
     <a href="where-to-buy.php">Where to buy</a>
     <a class="nav-cta" <?= ext($BRAND['amazon']) ?>>Shop</a>
   </nav>
-  <span class="eyebrow"><?= strtoupper(e($BRAND['tagline'])) ?></span>
 </div></header>
+<script>(function(){var b=document.getElementById('navtoggle'),n=document.getElementById('nav');if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.classList.toggle('open',o);b.setAttribute('aria-expanded',o);});})();</script>
