@@ -26,7 +26,6 @@ include __DIR__.'/partials/header.php';
       <a href="mailto:<?= e($COMPANY['email']) ?>"><?= e($COMPANY['email']) ?></a>
     </div>
   </div>
-
   <div class="wrap">
     <div class="wholesale-note">
       <div class="eyebrow accent">RETAILERS &amp; WHOLESALE</div>

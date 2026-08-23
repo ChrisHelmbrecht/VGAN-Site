@@ -127,9 +127,8 @@ include __DIR__.'/partials/header.php';
             <source src="<?= $viddir.e($v['file']) ?>" type="video/mp4">
           </video>
         <?php else: ?>
-          <div class="vid-ph"><span class="play">▶</span><em>coming soon</em></div>
+          <div class="vid-ph"><span class="play">&#9654;</span><em>coming soon</em></div>
         <?php endif; ?>
-        <figcaption><?= e($v['title']) ?></figcaption>
       </figure>
       <?php endforeach; ?>
     </div>
