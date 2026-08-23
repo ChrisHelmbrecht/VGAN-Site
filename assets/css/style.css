@@ -407,3 +407,10 @@ h1,h2,h3{font-family:Bebas Neue,sans-serif;font-weight:400;letter-spacing:.02em;
 @media(max-width:640px){.office-grid{grid-template-columns:1fr}}
 .foot-legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
 .foot-legal-links a{color:#888} .foot-legal-links a:hover{color:var(--text)}
+
+/* ============ video: preview frame + big play button ============ */
+.vid-wrap{position:relative}
+.vid-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:82px;height:82px;border:0;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 8px 26px rgba(0,0,0,.5);transition:transform .12s ease,opacity .2s ease}
+.vid-play::after{content:"";position:absolute;left:53%;top:50%;transform:translate(-50%,-50%);width:0;height:0;border-style:solid;border-width:17px 0 17px 28px;border-color:transparent transparent transparent #fff}
+.vid-play:hover{transform:translate(-50%,-50%) scale(1.07)}
+.vid-play.hide{opacity:0;pointer-events:none}

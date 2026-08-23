@@ -120,12 +120,19 @@ include __DIR__.'/partials/header.php';
       <h2>HEAR IT<br>FROM THOMAS</h2>
     </div>
     <div class="video-grid v3">
-      <?php $viddir='assets/vids/'; foreach($VIDEOS as $v): ?>
+      <?php $viddir='assets/vids/'; foreach($VIDEOS as $i=>$v):
+        $has=is_file(__DIR__.'/'.$viddir.$v['file']);
+        $base=pathinfo($v['file'],PATHINFO_FILENAME); $poster='';
+        foreach(['jpg','jpeg','png','webp'] as $x){ if(is_file(__DIR__.'/'.$viddir.$base.'.'.$x)){ $poster=$viddir.$base.'.'.$x; break; } }
+      ?>
       <figure class="vid">
-        <?php if(is_file(__DIR__.'/'.$viddir.$v['file'])): ?>
-          <video controls preload="none" playsinline<?= (!empty($v['poster'])&&is_file(__DIR__.'/'.$viddir.$v['poster']))?' poster="'.$viddir.e($v['poster']).'"':'' ?>>
-            <source src="<?= $viddir.e($v['file']) ?>" type="video/mp4">
-          </video>
+        <?php if($has): ?>
+          <div class="vid-wrap">
+            <video id="vid<?= $i ?>" preload="metadata" playsinline<?= $poster?' poster="'.e($poster).'"':'' ?>>
+              <source src="<?= $viddir.e($v['file']) ?>#t=0.1" type="video/mp4">
+            </video>
+            <button class="vid-play" type="button" data-target="vid<?= $i ?>" aria-label="Play video"></button>
+          </div>
         <?php else: ?>
           <div class="vid-ph"><span class="play">&#9654;</span><em>coming soon</em></div>
         <?php endif; ?>
@@ -134,6 +141,15 @@ include __DIR__.'/partials/header.php';
     </div>
   </div>
 </section>
+<script>
+document.querySelectorAll('.vid-play').forEach(function(btn){
+  var v=document.getElementById(btn.getAttribute('data-target')); if(!v) return;
+  btn.addEventListener('click',function(){ v.setAttribute('controls',''); v.play(); btn.classList.add('hide'); });
+  v.addEventListener('play',function(){ btn.classList.add('hide'); });
+  v.addEventListener('pause',function(){ if(!v.ended) btn.classList.remove('hide'); });
+  v.addEventListener('ended',function(){ btn.classList.remove('hide'); v.removeAttribute('controls'); try{v.currentTime=0.1;}catch(e){} });
+});
+</script>
 
 <!-- ============ SUSTAINABILITY TEASER ============ -->
 <section class="sustain-teaser">
