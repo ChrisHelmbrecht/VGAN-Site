@@ -96,6 +96,15 @@ include __DIR__.'/partials/header.php';
 </section>
 
 <!-- GALLERY -->
+<!-- CONCRETE ACTIONS -->
+<section class="statement-band">
+  <div class="wrap">
+    <div class="eyebrow accent">NO GREENWASHING</div>
+    <h2>REAL CHANGE,<br>NOT NEW WRAPPING</h2>
+    <p>Anyone can print a leaf on a wrapper. We went the other way &mdash; rebuilding what's inside: the farming, the recipe, the shipping, the numbers. Lighter on the planet by design, not by decoration.</p>
+  </div>
+</section>
+
 <section class="section gallery-sec">
   <div class="wrap">
     <div class="eyebrow accent">ON THE GROUND</div>

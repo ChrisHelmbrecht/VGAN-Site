@@ -19,4 +19,37 @@ include __DIR__.'/partials/header.php';
   </div>
 </section>
 
+
+<section class="section prose-sec">
+  <div class="wrap prose">
+    <div class="eyebrow accent">WHAT WE WON'T BUDGE ON</div>
+    <h2>THREE NON-<br>NEGOTIABLES</h2>
+    <div class="feature-row">
+      <div class="feature">
+        <h3>Taste first, always</h3>
+        <p>We didn't set out to make "good vegan chocolate." We set out to make chocolate so good the dairy-free part is a footnote &mdash; premium, organic, and ready to go head-to-head with anything on the shelf.</p>
+      </div>
+      <div class="feature">
+        <h3>Not just for vegans</h3>
+        <p>Our bars aren't aimed at a diet. They're for anyone who cares what they put in their mouth and what it costs the planet. Dairy-free is how we go lighter on the world; taste is why you come back.</p>
+      </div>
+      <div class="feature">
+        <h3>Sourced better, proven better</h3>
+        <p>The same farmers season after season, organic and traceable, with a footprint we actually measure &mdash; not a sticker we slapped on. The proof lives on our <a href="environment.php">sustainability page</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story-cta">
+  <div class="wrap">
+    <h2>EAT BETTER<br>CHOCOLATE.<br><span class="mag">KEEP PLAYING.</span></h2>
+    <p>Born in the north, wired to do things our own way. Superior taste, exceptional quality, and a following far beyond the vegan aisle &mdash; that's the whole idea, and we're only getting started.</p>
+    <div class="cta-btns">
+      <a class="btn" href="index.php#bars">See the bars</a>
+      <a class="btn ghost" href="where-to-buy.php">Find a store</a>
+    </div>
+  </div>
+</section>
+
 <?php include __DIR__.'/partials/footer.php'; ?>

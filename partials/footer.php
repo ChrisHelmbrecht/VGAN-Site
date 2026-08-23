@@ -12,6 +12,7 @@
     <a href="story.php">Our story</a>
     <a href="environment.php">Sustainability</a>
     <a href="where-to-buy.php">Where to buy</a>
+    <a href="contact.php">Contact</a>
     <a <?= ext($BRAND['amazon']) ?>>Shop on Amazon</a>
   </nav>
   <div class="foot-company">
@@ -20,7 +21,10 @@
     <a href="mailto:<?= e($COMPANY['email']) ?>"><?= e($COMPANY['email']) ?></a>
   </div>
 </div>
-<div class="wrap foot-legal">&copy; <?= date('Y') ?> <?= e($COMPANY['name']) ?>. Made with joyful rebellion.</div>
+<div class="wrap foot-legal">
+  <span>&copy; <?= date('Y') ?> <?= e($COMPANY['name']) ?>. Made with joyful rebellion.</span>
+  <span class="foot-legal-links"><a href="privacy.php">Privacy</a> &middot; <a href="terms.php">Terms</a> &middot; <a href="contact.php">Contact</a></span>
+</div>
 </footer>
 </body>
 </html>

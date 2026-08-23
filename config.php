@@ -116,8 +116,7 @@ $RATING = ['stars'=>'4.3', 'count'=>277, 'intent'=>72];
 
 /* ---- VIDEOS (9:16, Thomas). Drop video-N.mp4 + video-N.jpg poster in assets/img/ ---- */
 $VIDEOS = [
-  ['file'=>'video-1.mp4','poster'=>'video-1.jpg','title'=>'Meet VGAN'],
-  ['file'=>'video-2.mp4','poster'=>'video-2.jpg','title'=>'Our ingredients'],
-  ['file'=>'video-3.mp4','poster'=>'video-3.jpg','title'=>'Why dairy-free'],
-  ['file'=>'video-4.mp4','poster'=>'video-4.jpg','title'=>'From Norway'],
+  ['file'=>'VGAN_ThomasInterview1.mp4','poster'=>'','title'=>'The idea behind VGAN'],
+  ['file'=>'VGAN_ThomasInterview2.mp4','poster'=>'','title'=>'What goes inside'],
+  ['file'=>'VGAN_ThomasInterview3.mp4','poster'=>'','title'=>'Why it matters'],
 ];

@@ -119,22 +119,15 @@ include __DIR__.'/partials/header.php';
       <div class="eyebrow accent">STRAIGHT FROM THE SOURCE</div>
       <h2>HEAR IT<br>FROM THOMAS</h2>
     </div>
-    <div class="video-grid">
-      <?php foreach($VIDEOS as $v): ?>
+    <div class="video-grid v3">
+      <?php $viddir='assets/vids/'; foreach($VIDEOS as $v): ?>
       <figure class="vid">
-        <?php if(is_file(__DIR__.'/assets/img/'.$v['file'])): ?>
-          <video controls preload="none" playsinline
-            <?php if(is_file(__DIR__.'/assets/img/'.$v['poster'])): ?>poster="assets/img/<?= e($v['poster']) ?>"<?php endif; ?>>
-            <source src="assets/img/<?= e($v['file']) ?>" type="video/mp4">
+        <?php if(is_file(__DIR__.'/'.$viddir.$v['file'])): ?>
+          <video controls preload="none" playsinline<?= (!empty($v['poster'])&&is_file(__DIR__.'/'.$viddir.$v['poster']))?' poster="'.$viddir.e($v['poster']).'"':'' ?>>
+            <source src="<?= $viddir.e($v['file']) ?>" type="video/mp4">
           </video>
         <?php else: ?>
-          <div class="vid-ph">
-            <?php if(is_file(__DIR__.'/assets/img/'.$v['poster'])): ?>
-              <img src="assets/img/<?= e($v['poster']) ?>" alt="<?= e($v['title']) ?>">
-            <?php endif; ?>
-            <span class="play">▶</span>
-            <em>drop <?= e($v['file']) ?> into assets/img/</em>
-          </div>
+          <div class="vid-ph"><span class="play">▶</span><em>coming soon</em></div>
         <?php endif; ?>
         <figcaption><?= e($v['title']) ?></figcaption>
       </figure>
