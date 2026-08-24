@@ -48,3 +48,34 @@ function img_or_placeholder($file,$alt,$label,$bg='#141414',$fg='#FF1493'){
   }
   return '<div class="ph" style="--phbg:'.e($bg).';--phfg:'.e($fg).'"><span>'.e($label).'</span><em>drop '.e($file).' into assets/img/</em></div>';
 }
+
+/* ---- i18n / language ---- */
+function current_lang(){
+  static $l=null; if($l!==null) return $l;
+  $ok=['en','no','es'];
+  if(isset($_GET['lang'])&&in_array($_GET['lang'],$ok,true)){ $l=$_GET['lang']; @setcookie('lang',$l,time()+31536000,'/'); }
+  elseif(isset($_COOKIE['lang'])&&in_array($_COOKIE['lang'],$ok,true)){ $l=$_COOKIE['lang']; }
+  else { $l='en'; }
+  return $l;
+}
+function load_lang(){
+  static $d=null; if($d!==null) return $d;
+  $cur=current_lang();
+  $d = ($cur!=='en' && is_file(__DIR__.'/lang/'.$cur.'.php')) ? include __DIR__.'/lang/'.$cur.'.php' : [];
+  if(!is_array($d)) $d=[]; return $d;
+}
+/* translated value or English default */
+function tv($k,$def=''){ $d=load_lang(); return array_key_exists($k,$d)?$d[$k]:$def; }
+function lang_url($lang){
+  $path=strtok($_SERVER['REQUEST_URI']??'index.php','?');
+  $q=$_GET; $q['lang']=$lang;
+  return $path.'?'.http_build_query($q);
+}
+function lang_switcher($cls='langsw'){
+  $cur=current_lang(); $o='<div class="'.$cls.'">';
+  foreach(['en'=>'EN','no'=>'NO','es'=>'ES'] as $c=>$lbl){
+    $o.='<a href="'.htmlspecialchars(lang_url($c)).'"'.($cur===$c?' class="on"':'').'>'.$lbl.'</a>';
+  }
+  return $o.'</div>';
+}
+current_lang(); // resolve + set cookie before any output

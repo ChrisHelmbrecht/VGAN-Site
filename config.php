@@ -38,15 +38,13 @@ $SKUS = [
   ['name'=>'Salty Almonds', 'desc'=>'Roasted almonds, sea salt',  'cocoa'=>44, 'img'=>'newdesign-saltyalmonds.png', 'color'=>'#6FB7E6', 'taste'=>'Sweet-and-salty done right — roasted almonds and flaky sea salt against a smooth, creamy melt.'],
   ['name'=>'Salty Caramel', 'desc'=>'Almonds & salty caramel',    'cocoa'=>33, 'img'=>'SKU-SaltyCaramel.png','color'=>'#D2691E', 'taste'=>'Golden and indulgent — buttery caramel, a pinch of sea salt and toasted almond over a silky base.'],
   ['name'=>'Dark',          'desc'=>'Deep & intense',             'cocoa'=>70, 'img'=>'SKU-Dark.png',        'color'=>'#3A2318', 'taste'=>'Deep and grown-up — rich roasted cocoa with a gentle bitter edge and a long, clean finish.'],
-  ['name'=>'Matcha & Lemon','desc'=>'Jamie Anderson signature',   'cocoa'=>36, 'img'=>'SKU-MatchaJamie.png', 'color'=>'#8FB43A', 'taste'=>'Fresh and unexpected — grassy matcha and a citrus lift over a creamy white base.'],
-  ['name'=>'White',         'desc'=>'Creamy white, vanilla',      'cocoa'=>36, 'img'=>'SKU_white.png',       'color'=>'#EDE3D0', 'taste'=>'Smooth and comforting — buttery cocoa butter, soft vanilla and a clean, sweet finish.'],
   ['name'=>'Coffee Beans',  'desc'=>'Crunchy roasted coffee',     'cocoa'=>44, 'img'=>'SKU_Coffee.png',      'color'=>'#6F4E37', 'taste'=>'For the coffee lover — crunchy roasted coffee beans and a malty, chocolatey warmth.'],
 ];
 
 /* ---- AMBASSADORS ------------------------------------------ */
 $AMBASSADORS = [
   ['name'=>'Jamie Anderson','role'=>'Olympic snowboarder','img'=>'AMBASSADOR-JamieAnderson_NewZealand2025.jpg',
-   'line'=>'Two-time Olympic gold medallist and the face of our Matcha & Lemon signature bar.',
+   'line'=>'Two-time Olympic gold medallist and a longtime friend of the brand.',
    'url'=>''],
   ['name'=>'Terje Håkonsen','role'=>'Snowboarding legend','img'=>'AMBASSADOR-TERJE-HAAKONSEN.jpg',
    'line'=>'The Norwegian pioneer who rewrote the rules — and shares our free-thinking roots.',
@@ -116,7 +114,7 @@ $RATING = ['stars'=>'4.3', 'count'=>277, 'intent'=>72];
 
 /* ---- VIDEOS (9:16, Thomas). Drop video-N.mp4 + video-N.jpg poster in assets/img/ ---- */
 $VIDEOS = [
-  ['file'=>'VGAN_ThomasInterview1.mp4','poster'=>'','title'=>'The idea behind VGAN'],
-  ['file'=>'VGAN_ThomasInterview2.mp4','poster'=>'','title'=>'What goes inside'],
-  ['file'=>'VGAN_ThomasInterview3.mp4','poster'=>'','title'=>'Why it matters'],
+  ['file'=>'VGAN_ThomasInterview1.mp4','poster'=>'VGAN_ThomasInterview1.png','title'=>'The idea behind VGAN'],
+  ['file'=>'VGAN_ThomasInterview2.mp4','poster'=>'VGAN_ThomasInterview2.png','title'=>'What goes inside'],
+  ['file'=>'VGAN_ThomasInterview3.mp4','poster'=>'VGAN_ThomasInterview3.png','title'=>'Why it matters'],
 ];

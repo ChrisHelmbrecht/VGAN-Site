@@ -1,5 +1,12 @@
 <?php $pageTitle='Premium dairy-free chocolate'; $page='home';
 require __DIR__.'/lib.php';
+/* first-visit redirect to the browser's language (only if no choice made yet) */
+if(!isset($_GET['lang']) && !isset($_COOKIE['lang'])){
+  $al=strtolower($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '');
+  $pick = preg_match('/(?:^|,)\s*(?:nb|nn|no)\b/',$al) ? 'no'
+        : (preg_match('/(?:^|,)\s*es\b/',$al) ? 'es' : '');
+  if($pick){ header('Location: index.php?lang='.$pick); exit; }
+}
 $stores=get_stores(); $storeCount=count($stores);
 $states=count(array_unique(array_column($stores,'s')));
 $NUTRITION=get_nutrition();
@@ -11,12 +18,12 @@ include __DIR__.'/partials/header.php';
 <section class="hero">
   <div class="hero-bg"><?= img_or_placeholder('Lifestyle-NorwayWinter.jpg','Norway winter lifestyle','HERO IMAGE','#101010','#FF1493') ?></div>
   <div class="hero-inner wrap">
-    <div class="eyebrow accent">PREMIUM · ORGANIC · PLANT-BASED</div>
-    <h1>TREAT YOURSELF,<br><span class="mag">LOUDLY.</span></h1>
-    <p>Eight seriously good chocolate bars. No dairy, no compromise, all joy.</p>
+    <div class="eyebrow accent"><?= tv('hero_eyebrow','PREMIUM · ORGANIC · PLANT-BASED') ?></div>
+    <h1><?= tv('hero_h1_l1','TREAT YOURSELF,') ?><br><span class="mag"><?= tv('hero_h1_l2','LOUDLY.') ?></span></h1>
+    <p><?= tv('hero_sub','Six seriously good chocolate bars. No dairy, no compromise, all joy.') ?></p>
     <div class="hero-cta">
-      <a class="btn" <?= ext($BRAND['amazon']) ?>>Shop the bars</a>
-      <a class="btn ghost" href="where-to-buy.php">Find a store</a>
+      <a class="btn" <?= ext($BRAND['amazon']) ?>><?= tv('hero_cta1','Shop the bars') ?></a>
+      <a class="btn ghost" href="where-to-buy.php"><?= tv('hero_cta2','Find a store') ?></a>
     </div>
   </div>
 </section>
@@ -41,15 +48,15 @@ include __DIR__.'/partials/header.php';
 <section id="bars" class="section">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">THE RANGE</div>
-      <h2>EIGHT WAYS<br>TO REBEL</h2>
+      <div class="eyebrow"><?= tv('range_eyebrow','THE RANGE') ?></div>
+      <h2><?= tv('range_h2_l1','SIX WAYS') ?><br><?= tv('range_h2_l2','TO REBEL') ?></h2>
     </div>
 
     <div class="newdesign">
       <div class="newdesign-copy">
-        <div class="eyebrow accent">NEW LOOK, INCOMING</div>
-        <h3><?= e($NEWDESIGNS['headline']) ?></h3>
-        <p><?= e($NEWDESIGNS['intro']) ?></p>
+        <div class="eyebrow accent"><?= tv('newlook_eyebrow','NEW LOOK, INCOMING') ?></div>
+        <h3><?= tv('nd_headline',$NEWDESIGNS['headline']) ?></h3>
+        <p><?= tv('nd_intro',$NEWDESIGNS['intro']) ?></p>
       </div>
       <div class="newdesign-imgs">
         <?php foreach($NEWDESIGNS['images'] as $ni): ?>
@@ -64,9 +71,9 @@ include __DIR__.'/partials/header.php';
         <div class="bar-img"><?= img_or_placeholder($s['img'],$s['name'],e($s['name']),'#151515',$s['color']) ?></div>
         <div class="bar-body">
           <h3><?= e($s['name']) ?></h3>
-          <p class="bar-desc"><?= e($s['desc']) ?></p>
+          <p class="bar-desc"><?= tv('desc:'.$s['name'],$s['desc']) ?></p>
           <span class="bar-cocoa"><?= (int)$s['cocoa'] ?>% cocoa</span>
-          <button class="bar-info" type="button">Ingredients &amp; Info</button>
+          <button class="bar-info" type="button"><?= tv('bar_info_btn','Ingredients &amp; Info') ?></button>
         </div>
       </article>
       <?php endforeach; ?>
@@ -79,12 +86,12 @@ include __DIR__.'/partials/header.php';
   <div class="wrap">
     <div class="reviews-head">
       <div>
-        <div class="eyebrow accent">DON'T TAKE OUR WORD FOR IT</div>
-        <h2>LOVED OUT LOUD</h2>
+        <div class="eyebrow accent"><?= tv('reviews_eyebrow',"DON'T TAKE OUR WORD FOR IT") ?></div>
+        <h2><?= tv('reviews_h2','LOVED OUT LOUD') ?></h2>
       </div>
       <div class="reviews-score">
         <div class="rscore"><?= e($RATING['stars']) ?><span>/5</span></div>
-        <div class="rmeta"><?= (int)$RATING['count'] ?> reviews · <?= (int)$RATING['intent'] ?>% would buy again</div>
+        <div class="rmeta"><?= (int)$RATING['count'] ?> <?= tv('reviews_word','reviews') ?> · <?= (int)$RATING['intent'] ?>% <?= tv('reviews_buy','would buy again') ?></div>
       </div>
     </div>
     <div class="review-grid">
@@ -96,7 +103,7 @@ include __DIR__.'/partials/header.php';
       </figure>
       <?php endforeach; ?>
     </div>
-    <p class="reviews-src">Verified reviews via Social Nature.</p>
+    <p class="reviews-src"><?= tv('reviews_src','Verified reviews via Social Nature.') ?></p>
   </div>
 </section>
 
@@ -105,10 +112,9 @@ include __DIR__.'/partials/header.php';
   <div class="manifesto-bg"><?= img_or_placeholder('MANIFESTO_VGAN-Mold.jpg','Chocolate mould texture','','#0a0a0a','#FF1493') ?></div>
   <div class="wrap manifesto-inner">
     <div class="eyebrow accent">JOYFUL REBELLION</div>
-    <p class="manifesto-lead">We didn't set out to make <em>vegan</em> chocolate.<br>
-    We set out to make chocolate so good you'd never ask what's <em>not</em> in it.</p>
-    <p class="manifesto-body">Born in Norway, made without dairy, built for people who treat themselves on purpose. Premium organic cocoa, clean ingredients, and a bit of an attitude — indulgence without the guilt trip, and none of the beige.</p>
-    <a class="link-arrow" href="story.php">Our story &rarr;</a>
+    <p class="manifesto-lead"><?= tv('manifesto_lead',"We didn't set out to make <em>vegan</em> chocolate.<br>We set out to make chocolate so good you'd never ask what's <em>not</em> in it.") ?></p>
+    <p class="manifesto-body"><?= tv('manifesto_body','Born in Norway, made without dairy, built for people who treat themselves on purpose. Premium organic cocoa, clean ingredients, and a bit of an attitude — indulgence without the guilt trip, and none of the beige.') ?></p>
+    <a class="link-arrow" href="story.php"><?= tv('manifesto_link','Our story &rarr;') ?></a>
   </div>
 </section>
 
@@ -116,20 +122,17 @@ include __DIR__.'/partials/header.php';
 <section class="videos section">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow accent">STRAIGHT FROM THE SOURCE</div>
-      <h2>HEAR IT<br>FROM THOMAS</h2>
+      <div class="eyebrow accent"><?= tv('videos_eyebrow','STRAIGHT FROM THE SOURCE') ?></div>
+      <h2><?= tv('videos_h2_l1','HEAR IT') ?><br><?= tv('videos_h2_l2','FROM THOMAS') ?></h2>
     </div>
     <div class="video-grid v3">
       <?php $viddir='assets/vids/'; foreach($VIDEOS as $i=>$v):
-        $has=is_file(__DIR__.'/'.$viddir.$v['file']);
-        $base=pathinfo($v['file'],PATHINFO_FILENAME); $poster='';
-        foreach(['jpg','jpeg','png','webp'] as $x){ if(is_file(__DIR__.'/'.$viddir.$base.'.'.$x)){ $poster=$viddir.$base.'.'.$x; break; } }
-      ?>
+        $has=is_file(__DIR__.'/'.$viddir.$v['file']); $poster=!empty($v['poster'])?$viddir.$v['poster']:''; ?>
       <figure class="vid">
         <?php if($has): ?>
           <div class="vid-wrap">
             <video id="vid<?= $i ?>" preload="metadata" playsinline<?= $poster?' poster="'.e($poster).'"':'' ?>>
-              <source src="<?= $viddir.e($v['file']) ?>#t=0.1" type="video/mp4">
+              <source src="<?= $viddir.e($v['file']) ?>" type="video/mp4">
             </video>
             <button class="vid-play" type="button" data-target="vid<?= $i ?>" aria-label="Play video"></button>
           </div>
@@ -155,15 +158,15 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
 <section class="sustain-teaser">
   <div class="wrap sustain-inner">
     <div class="sustain-copy">
-      <div class="eyebrow accent">FROM SOIL TO SHELF</div>
-      <h2>GOOD CHOCOLATE<br>SHOULDN'T COST<br>THE EARTH</h2>
-      <p>Certified-organic cocoa from the same farming families in Sierra Leone and the Congo, sourced through our partner Tradin Organic — fully traceable, fairly paid, grown without cutting the rainforest down.</p>
-      <a class="btn" href="environment.php">See how it's made</a>
+      <div class="eyebrow accent"><?= tv('sustain_eyebrow','FROM SOIL TO SHELF') ?></div>
+      <h2><?= tv('sustain_h2_l1','GOOD CHOCOLATE') ?><br><?= tv('sustain_h2_l2',"SHOULDN'T COST") ?><br><?= tv('sustain_h2_l3','THE EARTH') ?></h2>
+      <p><?= tv('sustain_p','Certified-organic cocoa from the same farming families in Sierra Leone and the Congo, sourced through our partner Tradin Organic — fully traceable, fairly paid, grown without cutting the rainforest down.') ?></p>
+      <a class="btn" href="environment.php"><?= tv('sustain_cta',"See how it's made") ?></a>
     </div>
     <div class="co2-card">
       <div class="co2-num"><?= e($SUSTAIN['co2']) ?><span>kg</span></div>
-      <p class="co2-label">CO<sub>2</sub> per 1&nbsp;kg of our chocolate</p>
-      <div class="co2-vs">vs <strong><?= e($SUSTAIN['co2_vs']) ?>&nbsp;kg</strong> for most milk chocolate</div>
+      <p class="co2-label"><?= tv('co2_label','CO<sub>2</sub> per 1&nbsp;kg of our chocolate') ?></p>
+      <div class="co2-vs">vs <strong><?= e($SUSTAIN['co2_vs']) ?>&nbsp;kg</strong> <?= tv('co2_vs_post','for most milk chocolate') ?></div>
     </div>
   </div>
 </section>
@@ -172,8 +175,8 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
 <section class="amb section">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">AMBASSADORS</div>
-      <h2>OUR PEOPLE</h2>
+      <div class="eyebrow"><?= tv('amb_eyebrow','AMBASSADORS') ?></div>
+      <h2><?= tv('amb_h2','OUR PEOPLE') ?></h2>
     </div>
     <div class="amb-grid">
       <?php foreach($AMBASSADORS as $a): ?>
@@ -194,7 +197,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
 <!-- ============ RETAILERS ============ -->
 <section class="retailers">
   <div class="wrap">
-    <div class="retailers-head"><div class="eyebrow accent">STOCKED AT</div><h2>FIND US AT</h2></div>
+    <div class="retailers-head"><div class="eyebrow accent"><?= tv('retail_eyebrow','STOCKED AT') ?></div><h2><?= tv('retail_h2','FIND US AT') ?></h2></div>
     <div class="retailer-row">
       <?php foreach($RETAILERS as $r): ?>
         <div class="retailer" title="<?= e($r['name']) ?>">
@@ -209,10 +212,10 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
 <section class="wtb-teaser">
   <div class="wrap wtb-inner">
     <div>
-      <div class="eyebrow accent">STOCKISTS</div>
-      <h2>FIND US IN<br><span class="big-num"><?= $storeCount ?></span> STORES</h2>
-      <p>Across <?= $states ?> states — and growing. Track down your nearest bar.</p>
-      <a class="btn" href="where-to-buy.php">Open the store finder</a>
+      <div class="eyebrow accent"><?= tv('store_eyebrow','STOCKISTS') ?></div>
+      <h2><?= tv('store_h2_l1','FIND US IN') ?><br><span class="big-num"><?= $storeCount ?></span> <?= tv('store_h2_l2','STORES') ?></h2>
+      <p><?= tv('store_p_pre','Across') ?> <?= $states ?> <?= tv('store_p_post','states — and growing. Track down your nearest bar.') ?></p>
+      <a class="btn" href="where-to-buy.php"><?= tv('store_cta','Open the store finder') ?></a>
     </div>
   </div>
 </section>
@@ -246,7 +249,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
 </div>
 
 <script>window.NUTRI = <?= json_encode($NUTRITION, JSON_UNESCAPED_UNICODE) ?>;
-window.SKUMETA = <?= json_encode(array_column($SKUS,null,'name'), JSON_UNESCAPED_UNICODE) ?>;</script>
+<?php $skm=array_column($SKUS,null,'name'); foreach($skm as $sn=>&$sm){ if(!empty($sm['taste'])) $sm['taste']=tv('taste:'.$sn,$sm['taste']); } unset($sm); ?>window.SKUMETA = <?= json_encode($skm, JSON_UNESCAPED_UNICODE) ?>;</script>
 <script>
 (function(){
   const modal=document.getElementById('skuModal');
