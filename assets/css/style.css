@@ -432,6 +432,7 @@ h1,h2,h3{font-family:Bebas Neue,sans-serif;font-weight:400;letter-spacing:.02em;
 
 
 /* ============ cookie consent banner ============ */
+.cookie-banner[hidden]{display:none}
 .cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:9999;pointer-events:auto;background:#141414;border-top:1px solid var(--line);padding:15px 20px;display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;box-shadow:0 -8px 24px rgba(0,0,0,.4)}
 .cookie-banner p{color:#cfcfcf;font-size:13.5px;line-height:1.5;margin:0;max-width:64ch}
 .cookie-banner a{color:var(--accent)}

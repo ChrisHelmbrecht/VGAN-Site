@@ -127,7 +127,12 @@ include __DIR__.'/partials/header.php';
     </div>
     <div class="video-grid v3">
       <?php $viddir='assets/vids/'; foreach($VIDEOS as $i=>$v):
-        $has=is_file(__DIR__.'/'.$viddir.$v['file']); $poster=!empty($v['poster'])?$viddir.$v['poster']:''; ?>
+        $has=is_file(__DIR__.'/'.$viddir.$v['file']);
+        $poster=''; $pbase=pathinfo($v['file'],PATHINFO_FILENAME);
+        foreach(['assets/vids/','assets/img/'] as $pd){
+          if(!empty($v['poster']) && is_file(__DIR__.'/'.$pd.$v['poster'])){ $poster=$pd.$v['poster']; break; }
+          foreach(['png','jpg','jpeg','webp'] as $px){ if(is_file(__DIR__.'/'.$pd.$pbase.'.'.$px)){ $poster=$pd.$pbase.'.'.$px; break 2; } }
+        } ?>
       <figure class="vid">
         <?php if($has): ?>
           <div class="vid-wrap">
