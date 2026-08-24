@@ -72,7 +72,7 @@ include __DIR__.'/partials/header.php';
         <div class="bar-body">
           <h3><?= e($s['name']) ?></h3>
           <p class="bar-desc"><?= tv('desc:'.$s['name'],$s['desc']) ?></p>
-          <span class="bar-cocoa"><?= (int)$s['cocoa'] ?>% cocoa</span>
+          <span class="bar-cocoa"><?= (int)$s['cocoa'] ?>% <?= tv('cocoa_word','cocoa') ?></span>
           <button class="bar-info" type="button"><?= tv('bar_info_btn','Ingredients &amp; Info') ?></button>
         </div>
       </article>
@@ -132,7 +132,7 @@ include __DIR__.'/partials/header.php';
         <?php if($has): ?>
           <div class="vid-wrap">
             <video id="vid<?= $i ?>" preload="metadata" playsinline<?= $poster?' poster="'.e($poster).'"':'' ?>>
-              <source src="<?= $viddir.e($v['file']) ?>" type="video/mp4">
+              <source src="<?= $viddir.e($v['file']) ?>#t=0.1" type="video/mp4">
             </video>
             <button class="vid-play" type="button" data-target="vid<?= $i ?>" aria-label="Play video"></button>
           </div>
@@ -183,10 +183,10 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
       <article class="amb-card">
         <div class="amb-img"><?= img_or_placeholder($a['img'],$a['name'],e($a['name']),'#151515','#FF1493') ?></div>
         <div class="amb-body">
-          <div class="amb-role"><?= e($a['role']) ?></div>
+          <div class="amb-role"><?= tv('amb_role:'.$a['name'], $a['role']) ?></div>
           <h3><?= e($a['name']) ?></h3>
-          <p><?= e($a['line']) ?></p>
-          <?php if($a['url']): ?><a class="link-arrow" <?= ext($a['url']) ?>>More &rarr;</a><?php endif; ?>
+          <p><?= tv('amb_line:'.$a['name'], $a['line']) ?></p>
+          <?php if($a['url']): ?><a class="link-arrow" <?= ext($a['url']) ?>><?= tv('amb_more','More &rarr;') ?></a><?php endif; ?>
         </div>
       </article>
       <?php endforeach; ?>
@@ -232,17 +232,17 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
     </div>
     <div class="mk-body">
       <div class="mk-block">
-        <h4>Ingredients</h4>
+        <h4><?= tv('mk_ingredients','Ingredients') ?></h4>
         <p id="mkIngredients"></p>
-        <p class="mk-allergen"><strong>May contain:</strong> <span id="mkAllergens"></span></p>
+        <p class="mk-allergen"><strong><?= tv('mk_maycontain','May contain:') ?></strong> <span id="mkAllergens"></span></p>
       </div>
       <div class="mk-block">
-        <h4>Nutrition</h4>
+        <h4><?= tv('mk_nutrition','Nutrition') ?></h4>
         <div id="mkNutriWrap">
           <div class="mk-serving" id="mkServing"></div>
           <table class="mk-nutri" id="mkNutri"></table>
         </div>
-        <p class="mk-soon" id="mkSoon" hidden>Full nutrition details coming soon.</p>
+        <p class="mk-soon" id="mkSoon" hidden><?= tv('mk_soon','Full nutrition details coming soon.') ?></p>
       </div>
     </div>
   </div>
@@ -253,15 +253,13 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
 <script>
 (function(){
   const modal=document.getElementById('skuModal');
-  const rows=[['energy','Calories'],['fat','Total fat'],['sat','Saturated fat'],['sodium','Sodium'],
-    ['carbs','Total carbohydrate'],['sugars','Total sugars'],['added','Added sugars'],['fiber','Dietary fiber'],
-    ['protein','Protein'],['calcium','Calcium'],['iron','Iron'],['potassium','Potassium'],['caffeine','Caffeine']];
+  const rows=<?= json_encode([['energy',tv('nut_energy','Calories')],['fat',tv('nut_fat','Total fat')],['sat',tv('nut_sat','Saturated fat')],['sodium',tv('nut_sodium','Sodium')],['carbs',tv('nut_carbs','Total carbohydrate')],['sugars',tv('nut_sugars','Total sugars')],['added',tv('nut_added','Added sugars')],['fiber',tv('nut_fiber','Dietary fiber')],['protein',tv('nut_protein','Protein')],['calcium',tv('nut_calcium','Calcium')],['iron',tv('nut_iron','Iron')],['potassium',tv('nut_potassium','Potassium')],['caffeine',tv('nut_caffeine','Caffeine')]], JSON_UNESCAPED_UNICODE) ?>;
   function open(sku){
     const n=window.NUTRI[sku], m=window.SKUMETA[sku]||{};
     if(!n)return;
     document.getElementById('mkTitle').textContent=sku;
     document.getElementById('mkFlavour').textContent=(m.desc||'');
-    document.getElementById('mkCocoa').textContent=(m.cocoa? m.cocoa+'% cocoa':'');
+    document.getElementById('mkCocoa').textContent=(m.cocoa? m.cocoa+'% '+<?= json_encode(tv('cocoa_word','cocoa')) ?>:'');
     document.getElementById('mkTaste').textContent=(m.taste||'');
     document.getElementById('mkIngredients').textContent=n.ingredients||'';
     document.getElementById('mkAllergens').textContent=n.allergens||'';
