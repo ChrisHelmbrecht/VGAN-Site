@@ -137,7 +137,7 @@ include __DIR__.'/partials/header.php';
         <?php if($has): ?>
           <div class="vid-wrap">
             <video id="vid<?= $i ?>" preload="metadata" playsinline<?= $poster?' poster="'.e($poster).'"':'' ?>>
-              <source src="<?= $viddir.e($v['file']) ?>#t=0.1" type="video/mp4">
+              <source src="<?= $viddir.e($v['file']) ?><?= $poster?'':'#t=0.1' ?>" type="video/mp4">
             </video>
             <button class="vid-play" type="button" data-target="vid<?= $i ?>" aria-label="Play video"></button>
           </div>
