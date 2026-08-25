@@ -36,7 +36,7 @@
   function filtered(){
     const q=document.getElementById('q').value.trim().toLowerCase(), st=stSel.value;
     let arr=STORES.filter(s=>{
-      if(initStores.length&&initStores.indexOf(sid(s))===-1)return false;
+      if(initStores.length&&initStores.indexOf(sid(s))===-1&&initStores.indexOf(s.id)===-1)return false;
       if(st&&s.s!==st)return false;
       if(q&&!(s.n+' '+s.a+' '+s.c+' '+s.s+' '+s.z).toLowerCase().includes(q))return false;
       return true;
