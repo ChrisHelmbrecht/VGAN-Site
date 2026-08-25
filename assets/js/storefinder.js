@@ -11,6 +11,7 @@
   const resultsEl=document.getElementById('results');
   const headEl=document.getElementById('listHead');
   const stSel=document.getElementById('st');
+  let picking=false; const picked=new Set();
 
   const gmaps=s=>'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(s.a+', '+s.c+', '+s.s+' '+s.z);
   function miles(a,b){const R=3958.8,dLat=(b.lat-a.lat)*Math.PI/180,dLng=(b.lng-a.lng)*Math.PI/180,la1=a.lat*Math.PI/180,la2=b.lat*Math.PI/180;const h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;return R*2*Math.asin(Math.sqrt(h));}
@@ -29,9 +30,11 @@
 
   function filtered(){
     const q=document.getElementById('q').value.trim().toLowerCase(), st=stSel.value;
+    const ids=(window.STORE_FILTER&&window.STORE_FILTER.stores)||[];
     let arr=STORES.filter(s=>{
+      if(ids.length&&ids.indexOf(s.id)===-1)return false;
       if(st&&s.s!==st)return false;
-      if(q&&!(s.n+' '+s.c+' '+s.s+' '+s.z).toLowerCase().includes(q))return false;
+      if(q&&!(s.n+' '+s.a+' '+s.c+' '+s.s+' '+s.z).toLowerCase().includes(q))return false;
       return true;
     });
     if(userLoc)arr.forEach(s=>s._d=miles(userLoc,s));
@@ -41,7 +44,8 @@
 
   function render(){
     const arr=filtered();
-    headEl.textContent=(userLoc?'Nearest first — ':'')+arr.length+' stockist'+(arr.length!==1?'s':'')+(stSel.value?' in '+stSel.value:'');
+    var _q=document.getElementById('q').value.trim();
+    headEl.textContent=(userLoc?'Nearest first \u2014 ':'')+arr.length+' stockist'+(arr.length!==1?'s':'')+(stSel.value?' in '+stSel.value:(_q?' matching \u201c'+_q+'\u201d':''));
     layer.clearLayers(); arr.forEach(s=>layer.addLayer(s._m));
     if(!arr.length){resultsEl.innerHTML='<div class="empty">No stockists match that search.<br>Try a nearby city, a different state, or clear the filters.</div>';return;}
     const show=userLoc?arr.slice(0,40):arr;
@@ -55,6 +59,7 @@
     if(userLoc&&arr.length>40)resultsEl.innerHTML+='<div class="empty">Showing the 40 closest of '+arr.length+'. Filter by state to see more.</div>';
     [...resultsEl.querySelectorAll('.card')].forEach(c=>c.addEventListener('click',()=>{
       const s=STORES[+c.dataset.i];
+      if(picking){ if(picked.has(s.id)){picked.delete(s.id);c.classList.remove('picked');} else {picked.add(s.id);c.classList.add('picked');} updatePick(); return; }
       map.setView([s.lat,s.lng],12,{animate:true}); s._m.openPopup();
       resultsEl.querySelectorAll('.card').forEach(x=>x.classList.remove('active')); c.classList.add('active');
     }));
@@ -63,7 +68,7 @@
 
   let _qt;
   document.getElementById('q').addEventListener('input',function(){
-    render();
+    render(); syncURL();
     clearTimeout(_qt);
     _qt=setTimeout(function(){
       const q=document.getElementById('q').value.trim();
@@ -75,7 +80,7 @@
       }
     },350);
   });
-  stSel.addEventListener('change',()=>{render();fit();});
+  stSel.addEventListener('change',()=>{render();fit();syncURL();});
   document.getElementById('locBtn').addEventListener('click',function(){
     const b=this;
     if(!navigator.geolocation){alert('Location isn\'t available here. Search by city or ZIP instead.');return;}
@@ -90,5 +95,38 @@
     },()=>{b.textContent='Use my location';alert('Couldn\'t get your location. Allow location access, or search by city or ZIP.');},
     {enableHighAccuracy:true,timeout:8000});
   });
-  render();
+  function updatePick(){
+    var c=document.getElementById('pickCount'); if(!c)return;
+    c.textContent=picked.size+' store'+(picked.size!==1?'s':'')+' selected';
+    document.getElementById('pickUrl').value=picked.size?location.origin+location.pathname+'?stores='+[...picked].join(','):'';
+  }
+  var pickBtn=document.getElementById('pickBtn'), pickbar=document.getElementById('pickbar');
+  if(pickBtn){
+    pickBtn.addEventListener('click',function(){
+      picking=!picking;
+      document.querySelector('.finder').classList.toggle('picking',picking);
+      pickbar.hidden=!picking; pickBtn.classList.toggle('on',picking);
+      pickBtn.textContent=picking?'Done selecting':'Build ad link';
+      updatePick(); render();
+    });
+    document.getElementById('pickClear').addEventListener('click',function(){ picked.clear(); updatePick(); render(); });
+    document.getElementById('pickCopy').addEventListener('click',function(){
+      var u=document.getElementById('pickUrl'); if(!u.value)return; u.select();
+      if(navigator.clipboard) navigator.clipboard.writeText(u.value); else document.execCommand('copy');
+      var b=this, t=b.textContent; b.textContent='Copied!'; setTimeout(function(){b.textContent=t;},1500);
+    });
+  }
+  function syncURL(){
+    var q=document.getElementById('q').value.trim(), st=stSel.value, p=new URLSearchParams();
+    if(q)p.set('area',q); if(st)p.set('state',st);
+    var qs=p.toString();
+    if(window.history&&history.replaceState) history.replaceState(null,'',qs?location.pathname+'?'+qs:location.pathname);
+  }
+  (function initFromURL(){
+    var F=window.STORE_FILTER||{};
+    if(F.q)document.getElementById('q').value=F.q;
+    if(F.state){ if([...stSel.options].some(o=>o.value===F.state)) stSel.value=F.state; }
+    render();
+    if(F.q||F.state||(F.stores&&F.stores.length)){ var arr=filtered(); if(arr.length) map.fitBounds(L.featureGroup(arr.map(s=>s._m)).getBounds().pad(.3),{maxZoom:13}); }
+  })();
 })();

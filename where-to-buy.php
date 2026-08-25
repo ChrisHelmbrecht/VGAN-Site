@@ -1,11 +1,19 @@
 <?php $pageTitle='Where to buy'; $pageDesc='Find VGAN dairy-free chocolate near you — in US natural and grocery stores including Sprouts and Hy-Vee, plus Amazon and Instacart.'; $page='wtb';
 require __DIR__.'/lib.php';
 $stores=get_stores();
+foreach($stores as $k=>$s){ $stores[$k]['id']=substr(md5($s['n'].'|'.$s['a'].'|'.$s['z']),0,6); }
+$fArea   = trim($_GET['area'] ?? $_GET['q'] ?? '');
+$fState  = trim($_GET['state'] ?? $_GET['st'] ?? '');
+$fStores = array_values(array_filter(array_map('trim', explode(',', $_GET['stores'] ?? ''))));
+if($fArea!==''){
+  $pageTitle = 'VGAN in '.$fArea;
+  $pageDesc  = 'Find VGAN dairy-free chocolate in '.$fArea.'. See the stockists near you and get directions.';
+}
 include __DIR__.'/partials/header.php';
 ?>
 <section class="wrap finder-head">
   <div class="eyebrow accent">STORE FINDER</div>
-  <h1>FIND US <span class="mag">NEAR YOU</span></h1>
+  <h1><?php if($fArea!==''): ?>FIND US IN <span class="mag"><?= e($fArea) ?></span><?php else: ?>FIND US <span class="mag">NEAR YOU</span><?php endif; ?></h1>
   <p><span id="count"><?= count($stores) ?></span> stockists across the US — and growing. Search by city or ZIP, filter by state, or let us find the nearest bars to you.</p>
   <div class="controls">
     <button class="btn-loc" id="locBtn">
@@ -14,6 +22,7 @@ include __DIR__.'/partials/header.php';
     </button>
     <div class="field"><label>Search city / ZIP / store</label><input id="q" type="search" placeholder="e.g. Brooklyn, 90210, Raley's" autocomplete="off"></div>
     <div class="field"><label>State</label><select id="st"><option value="">All states</option></select></div>
+    <button class="btn-loc" id="pickBtn" type="button">Build ad link</button>
   </div>
 </section>
 
@@ -28,8 +37,16 @@ include __DIR__.'/partials/header.php';
   <p class="finder-note">Pins are shown at ZIP-code level. Map &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &amp; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>.</p>
 </div>
 
-<script>window.STORES = <?= json_encode($stores, JSON_UNESCAPED_UNICODE) ?>;</script>
+<script>window.STORES = <?= json_encode($stores, JSON_UNESCAPED_UNICODE) ?>;
+window.STORE_FILTER = <?= json_encode(['q'=>$fArea,'state'=>$fState,'stores'=>$fStores], JSON_UNESCAPED_UNICODE) ?>;</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="assets/js/storefinder.js"></script>
+
+<div class="pickbar" id="pickbar" hidden>
+  <span id="pickCount">0 stores selected</span>
+  <input id="pickUrl" readonly value="" onclick="this.select()">
+  <button class="btn" id="pickCopy" type="button">Copy link</button>
+  <button class="btn ghost" id="pickClear" type="button">Clear</button>
+</div>
 
 <?php include __DIR__.'/partials/footer.php'; ?>
