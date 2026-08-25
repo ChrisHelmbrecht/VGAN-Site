@@ -1,6 +1,11 @@
 /* VGAN store finder — reads window.STORES (injected by PHP) */
 (function(){
   const STORES = window.STORES || [];
+  function sid(s){var str=((s.n||'')+'|'+(s.a||'')+'|'+(s.z||'')).toLowerCase(),h=0x811c9dc5;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=(h*0x01000193)>>>0;}return h.toString(36);}
+  var _URLP=new URLSearchParams(location.search);
+  var initQ=(_URLP.get('area')||_URLP.get('q')||'').trim();
+  var initState=(_URLP.get('state')||_URLP.get('st')||'').trim();
+  var initStores=(_URLP.get('stores')||'').split(',').map(function(x){return x.trim();}).filter(Boolean);
   const map=L.map('map',{zoomControl:true,attributionControl:false}).setView([39.5,-98.35],4);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd'}).addTo(map);
 
@@ -30,9 +35,8 @@
 
   function filtered(){
     const q=document.getElementById('q').value.trim().toLowerCase(), st=stSel.value;
-    const ids=(window.STORE_FILTER&&window.STORE_FILTER.stores)||[];
     let arr=STORES.filter(s=>{
-      if(ids.length&&ids.indexOf(s.id)===-1)return false;
+      if(initStores.length&&initStores.indexOf(sid(s))===-1)return false;
       if(st&&s.s!==st)return false;
       if(q&&!(s.n+' '+s.a+' '+s.c+' '+s.s+' '+s.z).toLowerCase().includes(q))return false;
       return true;
@@ -59,7 +63,7 @@
     if(userLoc&&arr.length>40)resultsEl.innerHTML+='<div class="empty">Showing the 40 closest of '+arr.length+'. Filter by state to see more.</div>';
     [...resultsEl.querySelectorAll('.card')].forEach(c=>c.addEventListener('click',()=>{
       const s=STORES[+c.dataset.i];
-      if(picking){ if(picked.has(s.id)){picked.delete(s.id);c.classList.remove('picked');} else {picked.add(s.id);c.classList.add('picked');} updatePick(); return; }
+      if(picking){ var _id=sid(s); if(picked.has(_id)){picked.delete(_id);c.classList.remove('picked');} else {picked.add(_id);c.classList.add('picked');} updatePick(); return; }
       map.setView([s.lat,s.lng],12,{animate:true}); s._m.openPopup();
       resultsEl.querySelectorAll('.card').forEach(x=>x.classList.remove('active')); c.classList.add('active');
     }));
@@ -111,9 +115,11 @@
     });
     document.getElementById('pickClear').addEventListener('click',function(){ picked.clear(); updatePick(); render(); });
     document.getElementById('pickCopy').addEventListener('click',function(){
-      var u=document.getElementById('pickUrl'); if(!u.value)return; u.select();
-      if(navigator.clipboard) navigator.clipboard.writeText(u.value); else document.execCommand('copy');
-      var b=this, t=b.textContent; b.textContent='Copied!'; setTimeout(function(){b.textContent=t;},1500);
+      var u=document.getElementById('pickUrl'); if(!u.value)return;
+      u.focus(); u.select(); try{u.setSelectionRange(0,99999);}catch(e){}
+      var ok=false; try{ok=document.execCommand('copy');}catch(e){}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u.value).then(function(){},function(){});ok=true;}
+      var b=this,t=b.textContent; b.textContent=ok?'Copied!':'Select & \u2318C'; setTimeout(function(){b.textContent=t;},1600);
     });
   }
   function syncURL(){
@@ -123,10 +129,9 @@
     if(window.history&&history.replaceState) history.replaceState(null,'',qs?location.pathname+'?'+qs:location.pathname);
   }
   (function initFromURL(){
-    var F=window.STORE_FILTER||{};
-    if(F.q)document.getElementById('q').value=F.q;
-    if(F.state){ if([...stSel.options].some(o=>o.value===F.state)) stSel.value=F.state; }
+    if(initQ)document.getElementById('q').value=initQ;
+    if(initState){ if([...stSel.options].some(o=>o.value===initState)) stSel.value=initState; }
     render();
-    if(F.q||F.state||(F.stores&&F.stores.length)){ var arr=filtered(); if(arr.length) map.fitBounds(L.featureGroup(arr.map(s=>s._m)).getBounds().pad(.3),{maxZoom:13}); }
+    if(initQ||initState||initStores.length){ var arr=filtered(); if(arr.length) map.fitBounds(L.featureGroup(arr.map(s=>s._m)).getBounds().pad(.3),{maxZoom:13}); }
   })();
 })();
