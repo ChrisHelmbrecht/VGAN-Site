@@ -1,4 +1,4 @@
-<?php $pageTitle='Terms of Use'; $page='terms';
+<?php $pageTitle='Terms of Use'; $pageDesc='The terms of use for the VGAN website, lovevgan.com.'; $page='terms';
 require __DIR__.'/lib.php';
 include __DIR__.'/partials/header.php';
 ?>

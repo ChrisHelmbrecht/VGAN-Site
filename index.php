@@ -1,4 +1,4 @@
-<?php $pageTitle='Premium dairy-free chocolate'; $page='home';
+<?php $pageTitle='Premium dairy-free chocolate'; $pageDesc='VGAN makes premium organic, dairy-free chocolate — six plant-based bars crafted taste-first. Vegan, USDA Organic, gluten-free and non-GMO. Find us in US stores and on Amazon.'; $page='home';
 require __DIR__.'/lib.php';
 /* first-visit redirect to the browser's language (only if no choice made yet) */
 if(!isset($_GET['lang']) && !isset($_COOKIE['lang'])){
@@ -290,5 +290,46 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close();});
 })();
 </script>
+
+
+<!-- ============ FAQ (SEO/AEO) ============ -->
+<?php $FAQ=[
+  [tv('faq_q1','Is VGAN chocolate vegan and dairy-free?'), tv('faq_a1','Yes. Every VGAN bar is 100% plant-based and made without any dairy \u2014 no milk, and no hidden animal ingredients.')],
+  [tv('faq_q2','Is it organic?'), tv('faq_a2','Yes. We use certified-organic cocoa and our bars are USDA Organic.')],
+  [tv('faq_q3','Is it gluten-free and non-GMO?'), tv('faq_a3','Yes. All six bars are gluten-free and made without GMO ingredients.')],
+  [tv('faq_q4','What flavours are there?'), tv('faq_a4','Six: Creamy Melt, Pink Love, Salty Almonds, Salty Caramel, Dark, and Coffee Beans.')],
+  [tv('faq_q5','Where can I buy VGAN?'), tv('faq_a5','In US natural and grocery stores including Sprouts and Hy-Vee, and online via Amazon and Instacart. Use our store finder to find a shop near you.')],
+]; ?>
+<section class="section faq-sec">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow accent"><?= tv('faq_eyebrow','GOOD TO KNOW') ?></div><h2><?= tv('faq_h','QUESTIONS?') ?></h2></div>
+    <div class="faq">
+      <?php foreach($FAQ as $qa): ?>
+      <div class="faq-item"><h3><?= $qa[0] ?></h3><p><?= $qa[1] ?></p></div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- Product structured data -->
+<?php foreach($SKUS as $s): ?>
+<script type="application/ld+json"><?= json_encode([
+ '@context'=>'https://schema.org','@type'=>'Product',
+ 'name'=>'VGAN '.$s['name'],
+ 'description'=>strip_tags(tv('taste:'.$s['name'],$s['taste'])),
+ 'image'=>$BASE.'assets/img/'.$s['img'],
+ 'brand'=>['@type'=>'Brand','name'=>'VGAN'],
+ 'category'=>'Chocolate bar',
+ 'additionalProperty'=>[
+   ['@type'=>'PropertyValue','name'=>'Cocoa','value'=>$s['cocoa'].'%'],
+   ['@type'=>'PropertyValue','name'=>'Dietary','value'=>'Vegan, dairy-free, organic, gluten-free, non-GMO'],
+ ],
+], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?></script>
+<?php endforeach; ?>
+<!-- FAQ structured data -->
+<script type="application/ld+json"><?= json_encode([
+ '@context'=>'https://schema.org','@type'=>'FAQPage',
+ 'mainEntity'=>array_map(function($qa){return ['@type'=>'Question','name'=>strip_tags($qa[0]),'acceptedAnswer'=>['@type'=>'Answer','text'=>strip_tags($qa[1])]];},$FAQ),
+], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?></script>
 
 <?php include __DIR__.'/partials/footer.php'; ?>

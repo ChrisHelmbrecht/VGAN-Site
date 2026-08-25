@@ -1,0 +1,30 @@
+# VGAN — Premium dairy-free chocolate
+
+> VGAN makes premium, organic, dairy-free (vegan) chocolate: six plant-based bars crafted taste-first. Vegan, USDA Organic, gluten-free and non-GMO. Born in Norway, sold across the United States. Brand platform: "Joyful Rebellion".
+
+## About
+- Company: VGAN Inc., 205 East 42nd Street, Suite 1900, New York, NY 10017, USA. Contact: contact@eatvgan.com
+- Positioning: premium chocolate that happens to be dairy-free — taste leads; vegan/organic are a bonus, not the pitch.
+- Certifications: USDA Organic, Vegan, Certified B Corporation, Gluten-Free, Non-GMO, Dairy-Free.
+- Cocoa: certified-organic and traceable, from Sierra Leone and the DR Congo via partner Tradin Organic.
+- Carbon footprint: about 1.2 kg CO2e per kilo (measured by CarbonCloud), working toward below 1.
+- Languages: English (default), Norsk (?lang=no), Español (?lang=es).
+
+## Products (six bars)
+- Creamy Melt — 44% cocoa — smooth milk-style with roasted almond.
+- Pink Love — 35% cocoa — white cocoa butter with raspberry and almond.
+- Salty Almonds — 44% cocoa — roasted almonds and sea salt.
+- Salty Caramel — 33% cocoa — buttery caramel, sea salt and toasted almond.
+- Dark — 70% cocoa — deep and intense.
+- Coffee Beans — 44% cocoa — crunchy roasted coffee.
+
+## Where to buy
+- US natural and grocery retailers including Sprouts and Hy-Vee; online via Amazon and Instacart.
+- Store finder: https://lovevgan.com/where-to-buy.php
+
+## Key pages
+- Home: https://lovevgan.com/
+- Our story: https://lovevgan.com/story.php
+- Sustainability: https://lovevgan.com/environment.php
+- Where to buy: https://lovevgan.com/where-to-buy.php
+- Contact: https://lovevgan.com/contact.php

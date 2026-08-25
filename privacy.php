@@ -1,4 +1,4 @@
-<?php $pageTitle='Privacy Policy'; $page='privacy';
+<?php $pageTitle='Privacy Policy'; $pageDesc='How VGAN collects, uses and protects your information on lovevgan.com.'; $page='privacy';
 require __DIR__.'/lib.php';
 include __DIR__.'/partials/header.php';
 ?>

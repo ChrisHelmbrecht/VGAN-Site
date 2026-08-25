@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://lovevgan.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lovevgan.com/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://lovevgan.com/?lang=no"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lovevgan.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lovevgan.com/"/>
+  </url>
+  <url>
+    <loc>https://lovevgan.com/story.php</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lovevgan.com/story.php"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://lovevgan.com/story.php?lang=no"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lovevgan.com/story.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lovevgan.com/story.php"/>
+  </url>
+  <url>
+    <loc>https://lovevgan.com/environment.php</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lovevgan.com/environment.php"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://lovevgan.com/environment.php?lang=no"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lovevgan.com/environment.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lovevgan.com/environment.php"/>
+  </url>
+  <url>
+    <loc>https://lovevgan.com/where-to-buy.php</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lovevgan.com/where-to-buy.php"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://lovevgan.com/where-to-buy.php?lang=no"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lovevgan.com/where-to-buy.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lovevgan.com/where-to-buy.php"/>
+  </url>
+  <url>
+    <loc>https://lovevgan.com/contact.php</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lovevgan.com/contact.php"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://lovevgan.com/contact.php?lang=no"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lovevgan.com/contact.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lovevgan.com/contact.php"/>
+  </url>
+  <url>
+    <loc>https://lovevgan.com/privacy.php</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lovevgan.com/privacy.php"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://lovevgan.com/privacy.php?lang=no"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lovevgan.com/privacy.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lovevgan.com/privacy.php"/>
+  </url>
+  <url>
+    <loc>https://lovevgan.com/terms.php</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lovevgan.com/terms.php"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://lovevgan.com/terms.php?lang=no"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lovevgan.com/terms.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lovevgan.com/terms.php"/>
+  </url>
+</urlset>

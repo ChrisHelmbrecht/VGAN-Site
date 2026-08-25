@@ -1,4 +1,4 @@
-<?php $pageTitle='Sustainability — from soil to shelf'; $page='env';
+<?php $pageTitle='Sustainability — from soil to shelf'; $pageDesc='How VGAN makes chocolate that\'s lighter on the planet: certified-organic, traceable cocoa, about 1.2 kg CO2e per kilo, B Corp certified — and no greenwashing.'; $page='env';
 require __DIR__.'/lib.php';
 include __DIR__.'/partials/header.php';
 ?>

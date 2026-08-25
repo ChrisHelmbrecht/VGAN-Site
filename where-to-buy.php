@@ -1,4 +1,4 @@
-<?php $pageTitle='Where to buy'; $page='wtb';
+<?php $pageTitle='Where to buy'; $pageDesc='Find VGAN dairy-free chocolate near you — in US natural and grocery stores including Sprouts and Hy-Vee, plus Amazon and Instacart.'; $page='wtb';
 require __DIR__.'/lib.php';
 $stores=get_stores();
 include __DIR__.'/partials/header.php';

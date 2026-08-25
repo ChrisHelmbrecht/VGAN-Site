@@ -1,4 +1,4 @@
-<?php $pageTitle='Our story'; $page='story';
+<?php $pageTitle='Our story'; $pageDesc='The VGAN story: premium dairy-free chocolate born in Norway, built taste-first for everyone — not just vegans. Organic, plant-based, and unapologetically good.'; $page='story';
 require __DIR__.'/lib.php';
 include __DIR__.'/partials/header.php';
 ?>

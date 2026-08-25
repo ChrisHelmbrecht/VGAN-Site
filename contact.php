@@ -1,4 +1,4 @@
-<?php $pageTitle='Contact'; $page='contact';
+<?php $pageTitle='Contact'; $pageDesc='Get in touch with VGAN. US and Norway offices; wholesale and retailer enquiries at contact@eatvgan.com.'; $page='contact';
 require __DIR__.'/lib.php';
 include __DIR__.'/partials/header.php';
 ?>
