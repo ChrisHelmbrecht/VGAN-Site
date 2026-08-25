@@ -37,16 +37,16 @@ include __DIR__.'/partials/header.php';
   <p class="finder-note">Pins are shown at ZIP-code level. Map &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &amp; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>.</p>
 </div>
 
-<script>window.STORES = <?= json_encode($stores, JSON_UNESCAPED_UNICODE) ?>;
-window.STORE_FILTER = <?= json_encode(['q'=>$fArea,'state'=>$fState,'stores'=>$fStores], JSON_UNESCAPED_UNICODE) ?>;</script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="assets/js/storefinder.js?v=4"></script>
-
 <div class="pickbar" id="pickbar" hidden>
   <span id="pickCount">0 stores selected</span>
   <input id="pickUrl" readonly value="" onclick="this.select()">
   <button class="btn" id="pickCopy" type="button">Copy link</button>
   <button class="btn ghost" id="pickClear" type="button">Clear</button>
 </div>
+
+<script>window.STORES = <?= json_encode($stores, JSON_UNESCAPED_UNICODE) ?>;
+window.STORE_FILTER = <?= json_encode(['q'=>$fArea,'state'=>$fState,'stores'=>$fStores], JSON_UNESCAPED_UNICODE) ?>;</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/js/storefinder.js?v=5"></script>
 
 <?php include __DIR__.'/partials/footer.php'; ?>

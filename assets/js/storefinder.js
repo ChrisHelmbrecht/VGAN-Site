@@ -105,7 +105,7 @@
     document.getElementById('pickUrl').value=picked.size?location.origin+location.pathname+'?stores='+[...picked].join(','):'';
   }
   var pickBtn=document.getElementById('pickBtn'), pickbar=document.getElementById('pickbar');
-  if(pickBtn){
+  if(pickBtn&&pickbar){
     pickBtn.addEventListener('click',function(){
       picking=!picking;
       document.querySelector('.finder').classList.toggle('picking',picking);
@@ -113,8 +113,8 @@
       pickBtn.textContent=picking?'Done selecting':'Build ad link';
       updatePick(); render();
     });
-    document.getElementById('pickClear').addEventListener('click',function(){ picked.clear(); updatePick(); render(); });
-    document.getElementById('pickCopy').addEventListener('click',function(){
+    var _pClr=document.getElementById('pickClear'); if(_pClr)_pClr.addEventListener('click',function(){ picked.clear(); updatePick(); render(); });
+    var _pCpy=document.getElementById('pickCopy'); if(_pCpy)_pCpy.addEventListener('click',function(){
       var u=document.getElementById('pickUrl'); if(!u.value)return;
       u.focus(); u.select(); try{u.setSelectionRange(0,99999);}catch(e){}
       var ok=false; try{ok=document.execCommand('copy');}catch(e){}
