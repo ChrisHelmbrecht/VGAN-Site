@@ -1,4 +1,4 @@
-<?php $pageTitle='Sustainability — from soil to shelf'; $pageDesc='How VGAN makes chocolate that\'s lighter on the planet: certified-organic, traceable cocoa, about 1.2 kg CO2e per kilo, B Corp certified — and no greenwashing.'; $page='env';
+<?php $pageTitle='Sustainability — from soil to shelf'; $pageDesc='How VGAN makes chocolate that\'s lighter on the planet: certified-organic, traceable cocoa, about 0.7 kg CO2e per kilo, B Corp certified — and no greenwashing.'; $page='env';
 require __DIR__.'/lib.php';
 include __DIR__.'/partials/header.php';
 ?>
@@ -14,10 +14,10 @@ include __DIR__.'/partials/header.php';
 <!-- CO2 STAT -->
 <section class="section co2-band">
   <div class="wrap co2-band-grid">
-    <div class="co2-big"><div class="co2-num xl"><?= e($SUSTAIN['co2']) ?><span>kg</span></div><p><?= tv('env_co2_label','CO<sub>2</sub>e per 1&nbsp;kg of VGAN chocolate') ?></p></div>
+    <div class="co2-big"><div class="co2-num xl"><?= e($SUSTAIN['co2']) ?><span>kg</span></div><p><?= tv('env_co2_label','CO<sub>2</sub>e per 1&nbsp;kg of VGAN chocolate, at the factory') ?></p></div>
     <div class="co2-text">
       <h2><?= tv('env_co2_h2','DAIRY-FREE<br>DOES THE HEAVY LIFTING') ?></h2>
-      <p><?= tv('env_co2_a','Skipping milk is the single biggest thing chocolate can do for its carbon footprint. Ours comes in at about ') ?><strong><?= e($SUSTAIN['co2']) ?><?= tv('env_co2_unit','&nbsp;kg CO<sub>2</sub>e per kilo') ?></strong> (<?= e($SUSTAIN['co2_source']) ?>)<?= tv('env_co2_mid',' — against ') ?><strong><?= e($SUSTAIN['co2_vs']) ?>&nbsp;kg</strong><?= tv('env_co2_end',' for most conventional milk chocolate. Same indulgence, a fraction of the impact — and we\'re working to push it below&nbsp;1.') ?></p>
+      <p><?= tv('env_co2_a','Skipping milk is the single biggest thing chocolate can do for its carbon footprint. Ours comes in at about ') ?><strong><?= e($SUSTAIN['co2']) ?><?= tv('env_co2_unit','&nbsp;kg CO<sub>2</sub>e per kilo (at the factory, before logistics)') ?></strong> (<?= e($SUSTAIN['co2_source']) ?>)<?= tv('env_co2_mid',' — against ') ?><strong><?= e($SUSTAIN['co2_vs']) ?>&nbsp;kg</strong><?= tv('env_co2_end',' for most conventional milk chocolate. Same indulgence, a fraction of the impact — and we keep working to bring it lower.') ?></p>
       <?php if(!empty($SUSTAIN['report_file']) && is_file(__DIR__.'/assets/img/'.$SUSTAIN['report_file'])): ?>
         <a class="btn" href="assets/img/<?= e($SUSTAIN['report_file']) ?>" download><?= tv('env_dl','Download our sustainability report') ?></a>
       <?php endif; ?>

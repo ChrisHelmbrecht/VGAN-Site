@@ -13,7 +13,7 @@
     <a href="environment.php"><?= tv('foot_sustainability','Sustainability') ?></a>
     <a href="where-to-buy.php"><?= tv('foot_wtb','Where to buy') ?></a>
     <a href="contact.php"><?= tv('foot_contact','Contact') ?></a>
-    <a <?= ext($BRAND['amazon']) ?>><?= tv('foot_shop','Shop on Amazon') ?></a>
+    <a <?= ext(shop_link()) ?>><?= tv('foot_shop','Shop on Amazon') ?></a>
   </nav>
   <div class="foot-company">
     <strong><?= e($COMPANY['name']) ?></strong><br>

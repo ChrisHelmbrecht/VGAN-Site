@@ -22,7 +22,7 @@ include __DIR__.'/partials/header.php';
     <h1><?= tv('hero_h1_l1','TREAT YOURSELF,') ?><br><span class="mag"><?= tv('hero_h1_l2','LOUDLY.') ?></span></h1>
     <p><?= tv('hero_sub','Six seriously good chocolate bars. No dairy, no compromise, all joy.') ?></p>
     <div class="hero-cta">
-      <a class="btn" <?= ext($BRAND['amazon']) ?>><?= tv('hero_cta1','Shop the bars') ?></a>
+      <a class="btn" <?= ext(shop_link()) ?>><?= tv('hero_cta1','Shop the bars') ?></a>
       <a class="btn ghost" href="where-to-buy.php"><?= tv('hero_cta2','Find a store') ?></a>
     </div>
   </div>
@@ -32,7 +32,7 @@ include __DIR__.'/partials/header.php';
 <section class="trustbar">
   <div class="wrap trustbar-inner">
     <div class="norway-item">
-      <span>Designed and<br>Developed in<br>Norway</span>
+      <span><?= tv('trust_norway','Designed and<br>Developed in<br>Norway') ?></span>
       <?= img_or_placeholder('Flag_of_Norway.png','Norway','NO','#17264a','#fff') ?>
     </div>
     <?php foreach($TRUSTBAR as $b): ?>
@@ -113,7 +113,7 @@ include __DIR__.'/partials/header.php';
   <div class="wrap manifesto-inner">
     <div class="eyebrow accent">JOYFUL REBELLION</div>
     <p class="manifesto-lead"><?= tv('manifesto_lead',"We didn't set out to make <em>vegan</em> chocolate.<br>We set out to make chocolate so good you'd never ask what's <em>not</em> in it.") ?></p>
-    <p class="manifesto-body"><?= tv('manifesto_body','Born in Norway, made without dairy, built for people who treat themselves on purpose. Premium organic cocoa, clean ingredients, and a bit of an attitude — indulgence without the guilt trip, and none of the beige.') ?></p>
+    <p class="manifesto-body"><?= tv('manifesto_body','Born in Norway and made without dairy, for people who treat themselves on purpose. Premium organic cocoa, clean ingredients, and real character — all the pleasure of great chocolate, with none of the dairy and nothing boring about it.') ?></p>
     <a class="link-arrow" href="story.php"><?= tv('manifesto_link','Our story &rarr;') ?></a>
   </div>
 </section>
@@ -170,7 +170,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
     </div>
     <div class="co2-card">
       <div class="co2-num"><?= e($SUSTAIN['co2']) ?><span>kg</span></div>
-      <p class="co2-label"><?= tv('co2_label','CO<sub>2</sub> per 1&nbsp;kg of our chocolate') ?></p>
+      <p class="co2-label"><?= tv('co2_label','CO<sub>2</sub>e per 1&nbsp;kg, at the factory') ?></p>
       <div class="co2-vs">vs <strong><?= e($SUSTAIN['co2_vs']) ?>&nbsp;kg</strong> <?= tv('co2_vs_post','for most milk chocolate') ?></div>
     </div>
   </div>
@@ -253,7 +253,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
   </div>
 </div>
 
-<script>window.NUTRI = <?= json_encode($NUTRITION, JSON_UNESCAPED_UNICODE) ?>;
+<script><?php foreach($NUTRITION as $k=>&$row){ if(!empty($row['ingredients']))$row['ingredients']=tv('ing:'.$k,$row['ingredients']); if(!empty($row['allergens']))$row['allergens']=tv('allergens_all',$row['allergens']); } unset($row); ?>window.NUTRI = <?= json_encode($NUTRITION, JSON_UNESCAPED_UNICODE) ?>;
 <?php $skm=array_column($SKUS,null,'name'); foreach($skm as $sn=>&$sm){ if(!empty($sm['taste'])) $sm['taste']=tv('taste:'.$sn,$sm['taste']); } unset($sm); ?>window.SKUMETA = <?= json_encode($skm, JSON_UNESCAPED_UNICODE) ?>;</script>
 <script>
 (function(){

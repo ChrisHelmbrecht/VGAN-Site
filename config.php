@@ -33,7 +33,7 @@ define('DB_PASS', '');
 
 /* ---- THE 8 BARS ------------------------------------------- */
 $SKUS = [
-  ['name'=>'Creamy Melt',   'desc'=>'Smooth m*lk-style, almonds', 'cocoa'=>44, 'img'=>'newdesign-creamymelt.png',  'color'=>'#F5C542', 'taste'=>'Velvety and mellow — a slow, milky melt with soft cocoa warmth and a whisper of roasted almond.'],
+  ['name'=>'Creamy Melt',   'desc'=>'Smooth m*lk-style, nutty', 'cocoa'=>44, 'img'=>'newdesign-creamymelt.png',  'color'=>'#F5C542', 'taste'=>'Velvety and mellow — a slow, milky melt with soft cocoa warmth and a whisper of gentle nuttiness.'],
   ['name'=>'Pink Love',     'desc'=>'Almonds & raspberry',        'cocoa'=>35, 'img'=>'newdesign-pinklove.png',    'color'=>'#E6337F', 'taste'=>'Bright and playful — creamy white cocoa butter lifted by tart raspberry and a crunch of almond.'],
   ['name'=>'Salty Almonds', 'desc'=>'Roasted almonds, sea salt',  'cocoa'=>44, 'img'=>'newdesign-saltyalmonds.png', 'color'=>'#6FB7E6', 'taste'=>'Sweet-and-salty done right — roasted almonds and flaky sea salt against a smooth, creamy melt.'],
   ['name'=>'Salty Caramel', 'desc'=>'Almonds & salty caramel',    'cocoa'=>33, 'img'=>'SKU-SaltyCaramel.png','color'=>'#D2691E', 'taste'=>'Golden and indulgent — buttery caramel, a pinch of sea salt and toasted almond over a silky base.'],
@@ -71,7 +71,7 @@ $GALLERY = [
    CarbonCloud) states ~1.2 kg/kg with a target below 1 kg. Set the
    confirmed current figure + scope (farm-to-bar vs farm-to-shelf) here. */
 $SUSTAIN = [
-  'co2'        => '1.2',                 // kg CO2e per kg (CarbonCloud, Footprint report)
+  'co2'        => '0.7',                 // kg CO2e per kg AT FACTORY (excl. logistics), CarbonCloud
   'co2_vs'     => '4–13',                // mainstream milk chocolate range
   'co2_source' => 'measured with CarbonCloud', // methodology (proof of claim)
   'report_file'=> '',                    // e.g. 'VGAN-Sustainability-2026.pdf' in assets/img/ — leave '' to hide download (do NOT use the Innovation Norway funder report)

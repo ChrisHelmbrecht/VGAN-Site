@@ -67,7 +67,7 @@
     <a href="story.php"><?= tv('nav_story','Story') ?></a>
     <a href="environment.php"><?= tv('nav_sustainability','Sustainability') ?></a>
     <a href="where-to-buy.php"><?= tv('nav_wtb','Where to buy') ?></a>
-    <a class="nav-cta" <?= ext($BRAND['amazon']) ?>><?= tv('nav_shop','Shop') ?></a>
+    <a class="nav-cta" <?= ext(shop_link()) ?>><?= tv('nav_shop','Shop') ?></a>
   </nav>
 </div></header>
 <script>(function(){var b=document.getElementById('navtoggle'),n=document.getElementById('nav');if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.classList.toggle('open',o);b.setAttribute('aria-expanded',o);});})();</script>
