@@ -294,7 +294,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
 
 <!-- ============ FAQ (SEO/AEO) ============ -->
 <?php $FAQ=[
-  [tv('faq_q1','Is VGAN chocolate vegan and dairy-free?'), tv('faq_a1','Yes. Every VGAN bar is 100% plant-based and made without any dairy \u2014 no milk, and no hidden animal ingredients.')],
+  [tv('faq_q1','Is VGAN chocolate vegan and dairy-free?'), tv('faq_a1','Yes. Every VGAN bar is 100% plant-based and made without any dairy — no milk, and no hidden animal ingredients.')],
   [tv('faq_q2','Is it organic?'), tv('faq_a2','Yes. We use certified-organic cocoa and our bars are USDA Organic.')],
   [tv('faq_q3','Is it gluten-free and non-GMO?'), tv('faq_a3','Yes. All six bars are gluten-free and made without GMO ingredients.')],
   [tv('faq_q4','What flavours are there?'), tv('faq_a4','Six: Creamy Melt, Pink Love, Salty Almonds, Salty Caramel, Dark, and Coffee Beans.')],

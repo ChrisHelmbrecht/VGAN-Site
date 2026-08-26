@@ -46,7 +46,7 @@
  '@context'=>'https://schema.org','@type'=>'Organization','@id'=>$BASE.'#organization',
  'name'=>'VGAN','legalName'=>$COMPANY['name'],'url'=>$BASE,
  'logo'=>$BASE.'assets/img/'.$BRAND['logo'],'image'=>$ogimg,
- 'description'=>'Premium organic, dairy-free (vegan) chocolate \u2014 six plant-based bars crafted taste-first.',
+ 'description'=>'Premium organic, dairy-free (vegan) chocolate — six plant-based bars crafted taste-first.',
  'slogan'=>$BRAND['tagline'],'email'=>$COMPANY['email'],
  'address'=>['@type'=>'PostalAddress','streetAddress'=>$COMPANY['addr'][0],'addressLocality'=>'New York','addressRegion'=>'NY','postalCode'=>'10017','addressCountry'=>'US'],
  'sameAs'=>[$BRAND['instagram'],$BRAND['amazon']],
