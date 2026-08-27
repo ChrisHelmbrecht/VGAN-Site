@@ -45,13 +45,13 @@ $SKUS = [
 $AMBASSADORS = [
   ['name'=>'Jamie Anderson','role'=>'Olympic snowboarder','img'=>'AMBASSADOR-JamieAnderson_NewZealand2025.jpg',
    'line'=>'Two-time Olympic gold medallist and a longtime friend of the brand.',
-   'url'=>''],
+   'url'=>'https://www.teamusa.com/profiles/jamie-anderson'],
   ['name'=>'Terje Håkonsen','role'=>'Snowboarding legend','img'=>'AMBASSADOR-TERJE-HAAKONSEN.jpg',
    'line'=>'The Norwegian pioneer who rewrote the rules — and shares our free-thinking roots.',
-   'url'=>''],
+   'url'=>'https://www.instagram.com/chocorompe/'],
   ['name'=>'Pump for Peace','role'=>'Rider development','img'=>'AMBASSADOR-PumpForPeace3.jpg',
    'line'=>'Giving young riders in Southern Africa a track, a bike and a shot.',
-   'url'=>''],
+   'url'=>'https://pumpforpeace.com/'],
 ];
 
 /* ---- SUSTAINABILITY GALLERY (assets/img/) ----------------- */
