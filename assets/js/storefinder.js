@@ -49,9 +49,9 @@
   function render(){
     const arr=filtered();
     var _q=document.getElementById('q').value.trim();
-    headEl.textContent=(userLoc?'Nearest first \u2014 ':'')+arr.length+' stockist'+(arr.length!==1?'s':'')+(stSel.value?' in '+stSel.value:(_q?' matching \u201c'+_q+'\u201d':''));
+    headEl.textContent=(userLoc?'Nearest first \u2014 ':'')+arr.length+' store'+(arr.length!==1?'s':'')+(stSel.value?' in '+stSel.value:(_q?' matching \u201c'+_q+'\u201d':''));
     layer.clearLayers(); arr.forEach(s=>layer.addLayer(s._m));
-    if(!arr.length){resultsEl.innerHTML='<div class="empty">No stockists match that search.<br>Try a nearby city, a different state, or clear the filters.</div>';return;}
+    if(!arr.length){resultsEl.innerHTML='<div class="empty">No stores match that search.<br>Try a nearby city, a different state, or clear the filters.</div>';return;}
     const show=userLoc?arr.slice(0,40):arr;
     resultsEl.innerHTML=show.map(s=>{
       const d=userLoc?'<span class="dist">'+s._d.toFixed(1)+' mi</span>':'';

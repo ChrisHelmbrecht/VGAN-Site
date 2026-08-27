@@ -7,14 +7,14 @@ $fState  = trim($_GET['state'] ?? $_GET['st'] ?? '');
 $fStores = array_values(array_filter(array_map('trim', explode(',', $_GET['stores'] ?? ''))));
 if($fArea!==''){
   $pageTitle = 'VGAN in '.$fArea;
-  $pageDesc  = 'Find VGAN dairy-free chocolate in '.$fArea.'. See the stockists near you and get directions.';
+  $pageDesc  = 'Find VGAN dairy-free chocolate in '.$fArea.'. See the stores near you and get directions.';
 }
 include __DIR__.'/partials/header.php';
 ?>
 <section class="wrap finder-head">
   <div class="eyebrow accent">STORE FINDER</div>
   <h1><?php if($fArea!==''): ?>FIND US IN <span class="mag"><?= e($fArea) ?></span><?php else: ?>FIND US <span class="mag">NEAR YOU</span><?php endif; ?></h1>
-  <p><span id="count"><?= count($stores) ?></span> stockists across the US — and growing. Search by city or ZIP, filter by state, or let us find the nearest bars to you.</p>
+  <p><span id="count"><?= count($stores) ?></span> <?= tv('wtb_intro','stores across the US — and growing. Search by city or ZIP, filter by state, or let us find the ones nearest you.') ?></p>
   <div class="controls">
     <button class="btn-loc" id="locBtn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -29,7 +29,7 @@ include __DIR__.'/partials/header.php';
 <div class="wrap">
   <div class="finder">
     <div class="list">
-      <div class="list-head" id="listHead">All stockists</div>
+      <div class="list-head" id="listHead"><?= tv('wtb_all','All stores') ?></div>
       <div id="results"></div>
     </div>
     <div id="map"></div>

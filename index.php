@@ -113,7 +113,7 @@ include __DIR__.'/partials/header.php';
   <div class="wrap manifesto-inner">
     <div class="eyebrow accent">JOYFUL REBELLION</div>
     <p class="manifesto-lead"><?= tv('manifesto_lead',"We didn't set out to make <em>vegan</em> chocolate.<br>We set out to make chocolate so good you'd never ask what's <em>not</em> in it.") ?></p>
-    <p class="manifesto-body"><?= tv('manifesto_body','Born in Norway and made without dairy, for people who treat themselves on purpose. Premium organic cocoa, clean ingredients, and real character — all the pleasure of great chocolate, with none of the dairy and nothing boring about it.') ?></p>
+    <p class="manifesto-body"><?= tv('manifesto_body','Born in Norway. Made without dairy. Premium organic cocoa, clean ingredients and plenty of character. Everything you want from seriously good chocolate — just without the milk.') ?></p>
     <a class="link-arrow" href="story.php"><?= tv('manifesto_link','Our story &rarr;') ?></a>
   </div>
 </section>
@@ -217,7 +217,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
 <section class="wtb-teaser">
   <div class="wrap wtb-inner">
     <div>
-      <div class="eyebrow accent"><?= tv('store_eyebrow','STOCKISTS') ?></div>
+      <div class="eyebrow accent"><?= tv('store_eyebrow','STORES') ?></div>
       <h2><?= tv('store_h2_l1','FIND US IN') ?><br><span class="big-num"><?= $storeCount ?></span> <?= tv('store_h2_l2','STORES') ?></h2>
       <p><?= tv('store_p_pre','Across') ?> <?= $states ?> <?= tv('store_p_post','states — and growing. Track down your nearest bar.') ?></p>
       <a class="btn" href="where-to-buy.php"><?= tv('store_cta','Open the store finder') ?></a>
@@ -239,7 +239,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
       <div class="mk-block">
         <h4><?= tv('mk_ingredients','Ingredients') ?></h4>
         <p id="mkIngredients"></p>
-        <p class="mk-allergen"><strong><?= tv('mk_maycontain','May contain:') ?></strong> <span id="mkAllergens"></span></p>
+        <p class="mk-allergen"><strong><?= tv('mk_maycontain','May contain traces of:') ?></strong> <span id="mkAllergens"></span></p>
       </div>
       <div class="mk-block">
         <h4><?= tv('mk_nutrition','Nutrition') ?></h4>

@@ -36,7 +36,7 @@ $SKUS = [
   ['name'=>'Creamy Melt',   'desc'=>'Smooth m*lk-style, nutty', 'cocoa'=>44, 'img'=>'newdesign-creamymelt.png',  'color'=>'#F5C542', 'taste'=>'Velvety and mellow — a slow, milky melt with soft cocoa warmth and a whisper of gentle nuttiness.'],
   ['name'=>'Pink Love',     'desc'=>'Almonds & raspberry',        'cocoa'=>35, 'img'=>'newdesign-pinklove.png',    'color'=>'#E6337F', 'taste'=>'Bright and playful — creamy white cocoa butter lifted by tart raspberry and a crunch of almond.'],
   ['name'=>'Salty Almonds', 'desc'=>'Roasted almonds, sea salt',  'cocoa'=>44, 'img'=>'newdesign-saltyalmonds.png', 'color'=>'#6FB7E6', 'taste'=>'Sweet-and-salty done right — roasted almonds and flaky sea salt against a smooth, creamy melt.'],
-  ['name'=>'Salty Caramel', 'desc'=>'Almonds & salty caramel',    'cocoa'=>33, 'img'=>'SKU-SaltyCaramel.png','color'=>'#D2691E', 'taste'=>'Golden and indulgent — buttery caramel, a pinch of sea salt and toasted almond over a silky base.'],
+  ['name'=>'Salty Caramel', 'desc'=>'Almonds & salty caramel',    'cocoa'=>36, 'img'=>'SKU-SaltyCaramel.png','color'=>'#D2691E', 'taste'=>'Golden and indulgent — buttery caramel, a pinch of sea salt and toasted almond over a silky base.'],
   ['name'=>'Dark',          'desc'=>'Deep & intense',             'cocoa'=>70, 'img'=>'SKU-Dark.png',        'color'=>'#3A2318', 'taste'=>'Deep and grown-up — rich roasted cocoa with a gentle bitter edge and a long, clean finish.'],
   ['name'=>'Coffee Beans',  'desc'=>'Crunchy roasted coffee',     'cocoa'=>44, 'img'=>'SKU_Coffee.png',      'color'=>'#6F4E37', 'taste'=>'For the coffee lover — crunchy roasted coffee beans and a malty, chocolatey warmth.'],
 ];
