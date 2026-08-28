@@ -182,13 +182,25 @@
 'faq_a5'=>'I amerikanske daglig- og helsekostbutikker som Sprouts og Hy-Vee, og på nett via Amazon og Instacart. Bruk butikkfinneren for å finne en butikk nær deg.',
 'trust_norway'=>'Designet og<br>utviklet i<br>Norge',
 'allergens_all'=>'Mandler, hasselnøtter, pistasj, cashew, peanøtter, sesam',
-'ing:Creamy Melt'=>'Økologisk rårørsukker, kakaomasse, kakaosmør, kokoskrem, havremelkpulver (havremel, salt), solsikkelecitin, bourbonvanilje',
-'ing:Pink Love'=>'Økologisk rårørsukker, kakaosmør, havremelkpulver (havremel, salt), kokoskrem, mandler, frysetørkede bringebær, havsalt, solsikkelecitin, bourbonvanilje',
-'ing:Salty Almonds'=>'Økologisk rårørsukker, kakaomasse, kakaosmør, kokoskrem, mandler, havremelkpulver (havremel, salt), havsalt, solsikkelecitin, bourbonvanilje',
-'ing:Salty Caramel'=>'Økologisk kokossukker, økologisk kakaosmør, økologisk kokosmelkpulver, økologiske mandler, økologisk havremelkpulver, havsalt, solsikkelecitin',
-'ing:Dark'=>'Økologisk kakaomasse, økologisk rørsukker, økologisk kakaosmør, solsikkelecitin, bourbonvanilje',
-'ing:Coffee Beans'=>'Økologisk rørsukker, økologisk kakaomasse, økologisk kakaosmør, økologisk havremelkpulver, økologiske mandler, økologisk kokosmelkpulver, ristede kaffebønner, solsikkelecitin, bourbonvanilje',
+'ing:Creamy Melt'=>'Rårørsukker*, Kakaomasse*, Kakaosmør*, Kokoskrem*, Havredrikkpulver* (havremel, salt), Emulgator: Solsikkelecitin, Bourbonvanilje*
+*Fra økologisk landbruk',
+'ing:Pink Love'=>'Rårørsukker*, Kakaosmør*, Havredrikkpulver* (havremel, salt), Kokoskrem*, Mandler*, Frysetørkede bringebær*, Havsalt, Emulgator: Solsikkelecitin*, Bourbonvanilje*
+*Fra økologisk landbruk',
+'ing:Salty Almonds'=>'Rårørsukker, Kakaomasse, Kakaosmør, Kokoskrem, Mandler, Havredrikkpulver* (havremel, salt), Havsalt, Emulgator: Solsikkelecitin*, Bourbonvanilje
+*Fra økologisk landbruk',
+'ing:Salty Caramel'=>'Kokossukker*, Kakaosmør*, Kokosmelkpulver*, Mandler*, Havredrikkpulver* (havremel, salt), Havsalt, Emulgator: Solsikkelecitin*
+*Fra økologisk landbruk',
+'ing:Dark'=>'Kakaomasse*, Rørsukker*, Kakaosmør*, Emulgator: Solsikkelecitin*, Bourbonvanilje*
+*Fra økologisk landbruk',
+'ing:Coffee Beans'=>'Rørsukker*, Kakaomasse*, Kakaosmør*, Havredrikkpulver* (havremel, salt), Mandler*, Kokosmelkpulver*, Kaffebønner*, Emulgator: Solsikkelecitin*, Bourbonvanilje*
+*Fra økologisk landbruk',
 'wtb_intro'=>'butikker i USA – og stadig flere. Søk på by eller postnummer, filtrer på delstat, eller la oss finne de nærmeste deg. I Norge finner du oss også hos MENY.',
 'wtb_all'=>'Alle butikker',
 'env_co2_p'=>'Å droppe melk er noe av det mest effektive vi kan gjøre for å redusere klimaavtrykket fra sjokolade. Vår ligger på rundt <strong>0,7 kg CO<sub>2</sub>e per kilo ved fabrikk, før logistikk</strong> (målt med CarbonCloud) — mot <strong>4–13 kg CO<sub>2</sub>e</strong> for vanlig melkesjokolade. Samme nytelse. En brøkdel av avtrykket. Og vi jobber hele tiden for å få det enda lavere.',
+'alg:Creamy Melt'=>'Mandler, Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
+'alg:Pink Love'=>'Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
+'alg:Salty Almonds'=>'Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
+'alg:Salty Caramel'=>'Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
+'alg:Dark'=>'Mandler, Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
+'alg:Coffee Beans'=>'Mandler, Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
 ];

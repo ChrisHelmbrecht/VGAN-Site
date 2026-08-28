@@ -253,7 +253,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
   </div>
 </div>
 
-<script><?php foreach($NUTRITION as $k=>&$row){ if(!empty($row['ingredients']))$row['ingredients']=tv('ing:'.$k,$row['ingredients']); if(!empty($row['allergens']))$row['allergens']=tv('allergens_all',$row['allergens']); } unset($row); ?>window.NUTRI = <?= json_encode($NUTRITION, JSON_UNESCAPED_UNICODE) ?>;
+<script><?php foreach($NUTRITION as $k=>&$row){ if(!empty($row['ingredients']))$row['ingredients']=tv('ing:'.$k,$row['ingredients']); if(!empty($row['allergens']))$row['allergens']=tv('alg:'.$k, tv('allergens_all',$row['allergens'])); } unset($row); ?>window.NUTRI = <?= json_encode($NUTRITION, JSON_UNESCAPED_UNICODE) ?>;
 <?php $skm=array_column($SKUS,null,'name'); foreach($skm as $sn=>&$sm){ if(!empty($sm['taste'])) $sm['taste']=tv('taste:'.$sn,$sm['taste']); } unset($sm); ?>window.SKUMETA = <?= json_encode($skm, JSON_UNESCAPED_UNICODE) ?>;</script>
 <script>
 (function(){
