@@ -463,3 +463,8 @@ h1,h2,h3{font-family:Bebas Neue,sans-serif;font-weight:400;letter-spacing:.02em;
 @media(max-width:640px){.pickbar{flex-direction:column;align-items:stretch}.pickbar input{max-width:none}}
 
 #mkIngredients{white-space:pre-line}
+
+/* map attribution (CARTO/OSM) — legible on dark basemap */
+.leaflet-control-attribution{background:rgba(10,10,10,.72)!important;color:#b9b9b9!important;font-size:11px;padding:2px 8px}
+.leaflet-control-attribution a{color:#e8e8e8!important;text-decoration:none}
+.leaflet-control-attribution a:hover{text-decoration:underline}

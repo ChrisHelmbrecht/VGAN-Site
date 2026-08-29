@@ -6,8 +6,8 @@
   var initQ=(_URLP.get('area')||_URLP.get('q')||'').trim();
   var initState=(_URLP.get('state')||_URLP.get('st')||'').trim();
   var initStores=(_URLP.get('stores')||'').split(',').map(function(x){return x.trim();}).filter(Boolean);
-  const map=L.map('map',{zoomControl:true,attributionControl:false}).setView([39.5,-98.35],4);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd'}).addTo(map);
+  const map=L.map('map',{zoomControl:true}).setView([39.5,-98.35],4);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=cb1_2ime_1_17d01d14ce732c03b165d41e',{maxZoom:19,subdomains:'abcd',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
 
   const pinIcon=L.divIcon({className:'',html:'<div class="pin"></div>',iconSize:[14,14],iconAnchor:[7,7]});
   const youIcon=L.divIcon({className:'',html:'<div class="you"></div>',iconSize:[16,16],iconAnchor:[8,8]});

@@ -47,6 +47,6 @@ include __DIR__.'/partials/header.php';
 <script>window.STORES = <?= json_encode($stores, JSON_UNESCAPED_UNICODE) ?>;
 window.STORE_FILTER = <?= json_encode(['q'=>$fArea,'state'=>$fState,'stores'=>$fStores], JSON_UNESCAPED_UNICODE) ?>;</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="assets/js/storefinder.js?v=5"></script>
+<script src="assets/js/storefinder.js?v=6"></script>
 
 <?php include __DIR__.'/partials/footer.php'; ?>
