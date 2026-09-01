@@ -14,8 +14,8 @@ include __DIR__.'/partials/header.php';
   <div class="wrap office-grid">
     <div class="office-card">
       <div class="eyebrow accent"><?= tv('contact_us','UNITED STATES') ?></div>
-      <h3><?= e($COMPANY['name']) ?></h3>
-      <p><?php foreach($COMPANY['addr'] as $l): ?><?= e($l) ?><br><?php endforeach; ?><?= tv('country_us','United States') ?></p>
+      <h3><?= company_name() ?></h3>
+      <p><?= company_addr_html() ?></p>
       <a href="mailto:<?= e($COMPANY['email']) ?>"><?= e($COMPANY['email']) ?></a>
     </div>
     <div class="office-card">

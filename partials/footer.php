@@ -16,13 +16,13 @@
     <a <?= ext(shop_link()) ?>><?= tv('foot_shop','Shop on Amazon') ?></a>
   </nav>
   <div class="foot-company">
-    <strong><?= e($COMPANY['name']) ?></strong><br>
-    <?php foreach($COMPANY['addr'] as $l): ?><?= e($l) ?><br><?php endforeach; ?>
+    <strong><?= company_name() ?></strong><br>
+    <?= company_addr_html() ?><br>
     <a href="mailto:<?= e($COMPANY['email']) ?>"><?= e($COMPANY['email']) ?></a>
   </div>
 </div>
 <div class="wrap foot-legal">
-  <span>&copy; <?= date('Y') ?> <?= e($COMPANY['name']) ?>. <?= tv('foot_made','Made with joyful rebellion.') ?></span>
+  <span>&copy; <?= date('Y') ?> <?= company_name() ?>. <?= tv('foot_made','Made with joyful rebellion.') ?></span>
   <span class="foot-legal-links"><?= lang_switcher('langsw foot') ?> <a href="privacy.php"><?= tv('foot_privacy','Privacy') ?></a> &middot; <a href="terms.php"><?= tv('foot_terms','Terms') ?></a> &middot; <a href="contact.php"><?= tv('foot_contact2','Contact') ?></a></span>
 </div>
 </footer>

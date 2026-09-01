@@ -13,7 +13,7 @@
 'manifesto_link'=>'Vår historie &rarr;',
 'videos_eyebrow'=>'RETT FRA KILDEN','videos_h2_l1'=>'HØR DET','videos_h2_l2'=>'FRA THOMAS',
 'sustain_eyebrow'=>'FRA JORD TIL HYLLE','sustain_h2_l1'=>'GOD SJOKOLADE','sustain_h2_l2'=>'SKAL IKKE KOSTE','sustain_h2_l3'=>'JORDA',
-'sustain_p'=>'Økologisk kakao fra de samme bondefamiliene i Sierra Leone og Kongo, kjøpt gjennom vår partner Tradin Organic — fullt sporbar, rettferdig betalt og dyrket uten å hugge ned regnskogen.',
+'sustain_p'=>'Sertifisert økologisk kakao fra Sierra Leone og Den demokratiske republikken Kongo, gjennom vår mangeårige partner Tradin Organic — med langsiktige forhold i dyrkingsområdene, sporbarhet gjennom verdikjeden og programmer som støtter bønder, lokalsamfunn og skog.',
 'sustain_cta'=>'Se hvordan den lages','co2_label'=>'CO<sub>2</sub>e per 1&nbsp;kg, ved fabrikken','co2_vs_post'=>'for de fleste melkesjokolader',
 'amb_eyebrow'=>'AMBASSADØRER','amb_h2'=>'VÅRE FOLK',
 'retail_eyebrow'=>'FÅS HOS','retail_h2'=>'FINN OSS HOS',
@@ -203,4 +203,7 @@
 'alg:Salty Caramel'=>'Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
 'alg:Dark'=>'Mandler, Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
 'alg:Coffee Beans'=>'Mandler, Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
+'company_name'=>'VGAN chocolate AS',
+'company_addr'=>'Mogens Thorsens gate 13<br>0264 Oslo, Norge<br><span class="muted">Besøksadresse: Rosenholm Campus</span>',
+'retail_distrib'=>'Distribuert nasjonalt gjennom KeHE og UNFI.',
 ];

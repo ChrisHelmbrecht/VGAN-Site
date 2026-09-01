@@ -19,8 +19,8 @@ $BRAND = [
 
 /* ---- US COMPANY (footer) ---------------------------------- */
 $COMPANY = [
-  'name'  => 'VGAN Inc.',
-  'addr'  => ['205 East 42nd Street, Suite 1900', 'New York, NY 10017'],
+  'name'  => 'VGAN Inc',
+  'addr'  => ['225 Long Avenue Bldg 15', 'Hillside, NJ 07205'],
   'email' => 'contact@eatvgan.com',
 ];
 
@@ -104,8 +104,6 @@ $TRUSTBAR = [
 /* ---- RETAILERS (logos you swap in as retailer-*.png) ------ */
 $RETAILERS = [
   ['name'=>'Hy-Vee',  'img'=>'Retail_Hy-Vee.png'],
-  ['name'=>'KeHE',    'img'=>'Retail_KeHE.png'],
-  ['name'=>'UNFI',    'img'=>'Retail_UNFI.png'],
   ['name'=>'WHSmith', 'img'=>'Retailer_WHSmith_North_America_Logo_1.png'],
 ];
 

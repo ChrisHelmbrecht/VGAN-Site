@@ -78,5 +78,7 @@ function lang_switcher($cls='langsw'){
   }
   return $o.'</div>';
 }
+function company_name(){ global $COMPANY; return e(tv('company_name', $COMPANY['name'])); }
+function company_addr_html(){ global $COMPANY; return tv('company_addr', e($COMPANY['addr'][0]).'<br>'.e($COMPANY['addr'][1]).'<br>United States'); }
 function shop_link(){ global $BRAND; return current_lang()==='no' ? 'https://meny.no/sok?query=vgan&expanded=products' : $BRAND['amazon']; }
 current_lang(); // resolve + set cookie before any output

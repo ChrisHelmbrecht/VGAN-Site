@@ -42,13 +42,19 @@
 <link rel="shortcut icon" href="assets/img/favicon.ico">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>:root{--accent:<?= e($BRAND['accent']) ?>;--ink:<?= e($BRAND['ink']) ?>}</style>
+<?php
+  $orgName = $cur==='no' ? 'VGAN chocolate AS' : $COMPANY['name'];
+  $orgAddr = $cur==='no'
+    ? ['@type'=>'PostalAddress','streetAddress'=>'Mogens Thorsens gate 13','addressLocality'=>'Oslo','postalCode'=>'0264','addressCountry'=>'NO']
+    : ['@type'=>'PostalAddress','streetAddress'=>'225 Long Avenue Bldg 15','addressLocality'=>'Hillside','addressRegion'=>'NJ','postalCode'=>'07205','addressCountry'=>'US'];
+?>
 <script type="application/ld+json"><?= json_encode([
  '@context'=>'https://schema.org','@type'=>'Organization','@id'=>$BASE.'#organization',
- 'name'=>'VGAN','legalName'=>$COMPANY['name'],'url'=>$BASE,
+ 'name'=>'VGAN','legalName'=>$orgName,'url'=>$BASE,
  'logo'=>$BASE.'assets/img/'.$BRAND['logo'],'image'=>$ogimg,
  'description'=>'Premium organic, dairy-free (vegan) chocolate — six plant-based bars crafted taste-first.',
  'slogan'=>$BRAND['tagline'],'email'=>$COMPANY['email'],
- 'address'=>['@type'=>'PostalAddress','streetAddress'=>$COMPANY['addr'][0],'addressLocality'=>'New York','addressRegion'=>'NY','postalCode'=>'10017','addressCountry'=>'US'],
+ 'address'=>$orgAddr,
  'sameAs'=>[$BRAND['instagram'],$BRAND['amazon']],
 ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?></script>
 <script type="application/ld+json"><?= json_encode([

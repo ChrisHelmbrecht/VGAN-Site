@@ -165,7 +165,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
     <div class="sustain-copy">
       <div class="eyebrow accent"><?= tv('sustain_eyebrow','FROM SOIL TO SHELF') ?></div>
       <h2><?= tv('sustain_h2_l1','GOOD CHOCOLATE') ?><br><?= tv('sustain_h2_l2',"SHOULDN'T COST") ?><br><?= tv('sustain_h2_l3','THE EARTH') ?></h2>
-      <p><?= tv('sustain_p','Certified-organic cocoa from the same farming families in Sierra Leone and the Congo, sourced through our partner Tradin Organic — fully traceable, fairly paid, grown without cutting the rainforest down.') ?></p>
+      <p><?= tv('sustain_p','Certified-organic cocoa from Sierra Leone and the Democratic Republic of the Congo, sourced through our long-standing partner Tradin Organic — with lasting relationships in the growing regions, traceability through the supply chain, and programmes supporting farmers, communities and forests.') ?></p>
       <a class="btn" href="environment.php"><?= tv('sustain_cta',"See how it's made") ?></a>
     </div>
     <div class="co2-card">
@@ -210,6 +210,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
         </div>
       <?php endforeach; ?>
     </div>
+    <p class="retailer-note"><?= tv('retail_distrib','Distributed nationally through KeHE &amp; UNFI.') ?></p>
   </div>
 </section>
 

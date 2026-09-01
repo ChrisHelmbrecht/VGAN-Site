@@ -13,7 +13,7 @@
 'manifesto_link'=>'Nuestra historia &rarr;',
 'videos_eyebrow'=>'DIRECTO DE LA FUENTE','videos_h2_l1'=>'ESCÚCHALO','videos_h2_l2'=>'DE THOMAS',
 'sustain_eyebrow'=>'DE LA TIERRA AL ESTANTE','sustain_h2_l1'=>'EL BUEN CHOCOLATE','sustain_h2_l2'=>'NO DEBERÍA COSTAR','sustain_h2_l3'=>'EL PLANETA',
-'sustain_p'=>'Cacao orgánico certificado de las mismas familias productoras en Sierra Leona y el Congo, comprado a través de nuestro socio Tradin Organic — totalmente trazable, pagado de forma justa y cultivado sin talar la selva.',
+'sustain_p'=>'Cacao orgánico certificado de Sierra Leona y la República Democrática del Congo, a través de nuestro socio de muchos años Tradin Organic — con relaciones duraderas en las zonas de cultivo, trazabilidad a lo largo de la cadena y programas que apoyan a los agricultores, las comunidades y los bosques.',
 'sustain_cta'=>'Ver cómo se hace','co2_label'=>'CO<sub>2</sub>e por 1&nbsp;kg, en la fábrica','co2_vs_post'=>'para la mayoría del chocolate con leche',
 'amb_eyebrow'=>'EMBAJADORES','amb_h2'=>'NUESTRA GENTE',
 'retail_eyebrow'=>'DISPONIBLE EN','retail_h2'=>'ENCUÉNTRANOS EN',
@@ -191,4 +191,6 @@
 'wtb_intro'=>'tiendas en EE. UU. — y creciendo. Busca por ciudad o código postal, filtra por estado, o deja que encontremos las más cercanas a ti.',
 'wtb_all'=>'Todas las tiendas',
 'env_co2_p'=>'Quitar la leche es una de las cosas más eficaces que podemos hacer para reducir la huella de carbono del chocolate. La nuestra ronda los <strong>0,7 kg CO<sub>2</sub>e por kilo en la fábrica, antes de la logística</strong> (medido con CarbonCloud) — frente a <strong>4–13 kg CO<sub>2</sub>e</strong> del chocolate con leche convencional. El mismo placer. Una fracción del impacto. Y seguimos trabajando para reducirlo aún más.',
+'company_addr'=>'225 Long Avenue Bldg 15<br>Hillside, NJ 07205<br>Estados Unidos',
+'retail_distrib'=>'Distribuido a nivel nacional a través de KeHE y UNFI.',
 ];

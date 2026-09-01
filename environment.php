@@ -73,7 +73,7 @@ include __DIR__.'/partials/header.php';
   <div class="wrap prose">
     <div class="eyebrow accent"><?= tv('env_proof_eyebrow','PROOF, NOT PROMISES') ?></div>
     <h2><?= tv('env_proof_h2','WHAT WE STAND BEHIND') ?></h2>
-    <p><?= tv('env_proof_p','We\'ve signed the Norwegian <strong>Guide Against Greenwashing</strong> (SKIFT). It commits us to being concrete, open and accountable when we talk about sustainability. Here\'s some of what we can document.') ?></p>
+    <p><?= tv('env_proof_p','We\'ve signed Norway\'s <strong>Guide Against Greenwashing</strong> (SKIFT), committing us to be concrete, transparent and accountable when we talk about sustainability. Here\'s some of what we can document.') ?></p>
     <div class="feature-row">
       <div class="feature">
         <h3><?= tv('env_p1_h','Certified organic &amp; vegan') ?></h3>

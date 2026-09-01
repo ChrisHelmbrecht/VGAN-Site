@@ -44,7 +44,7 @@ include __DIR__.'/partials/header.php';
 <section class="story-cta">
   <div class="wrap">
     <h2><?= tv('story_cta_h2','EAT BETTER<br>CHOCOLATE.<br><span class="mag">KEEP PLAYING.</span>') ?></h2>
-    <p><?= tv('story_cta_p','Born in the north, with a stubborn belief in doing things our own way. Seriously good taste, exceptional quality, and a following far beyond the vegan aisle. That\'s the whole idea. And we\'re only getting started.') ?></p>
+    <p><?= tv('story_cta_p','Born in the north, with a stubborn belief in doing things our own way. Seriously good chocolate, exceptional quality, and a following far beyond the vegan aisle. That\'s the whole idea. And we\'re only getting started.') ?></p>
     <div class="cta-btns">
       <a class="btn" href="index.php#bars"><?= tv('story_cta_btn1','See the bars') ?></a>
       <a class="btn ghost" href="where-to-buy.php"><?= tv('hero_cta2','Find a store') ?></a>
