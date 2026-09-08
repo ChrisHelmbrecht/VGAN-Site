@@ -37,7 +37,7 @@ include __DIR__.'/partials/header.php';
     </div>
     <?php foreach($TRUSTBAR as $b): ?>
       <div class="trust-item" title="<?= e($b['label']) ?>">
-        <?= img_or_placeholder($b['img'],$b['label'],e($b['label']),'transparent','#FF1493') ?>
+        <?php if(!empty($b['link'])): ?><a href="<?= e($b['link']) ?>" target="_blank" rel="noopener" aria-label="<?= e($b['label']) ?> — learn more at bcorp.com"><?= img_or_placeholder($b['img'],$b['label'],e($b['label']),'transparent','#FF1493') ?></a><?php else: ?><?= img_or_placeholder($b['img'],$b['label'],e($b['label']),'transparent','#FF1493') ?><?php endif; ?>
       </div>
     <?php endforeach; ?>
   </div>

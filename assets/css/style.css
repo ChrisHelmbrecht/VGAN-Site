@@ -470,3 +470,6 @@ h1,h2,h3{font-family:Bebas Neue,sans-serif;font-weight:400;letter-spacing:.02em;
 .leaflet-control-attribution a:hover{text-decoration:underline}
 
 .retailer-note{text-align:center;color:var(--muted);font-size:13px;letter-spacing:.01em;margin:22px 0 0}
+
+.bcorp-more{display:block;margin-top:12px;font-size:13px;color:var(--muted);text-decoration:underline;text-align:center}
+.bcorp-more:hover{color:var(--white)}

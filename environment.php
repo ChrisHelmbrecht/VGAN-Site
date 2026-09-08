@@ -59,11 +59,14 @@ include __DIR__.'/partials/header.php';
 <?php if(!empty($BCORP['certified'])): ?>
 <section class="bcorp-band">
   <div class="wrap bcorp-inner">
-    <div class="bcorp-badge"><?= img_or_placeholder($BCORP['badge'],'Certified B Corporation','B CORP','#0d0d0d','#FF1493') ?></div>
+    <div class="bcorp-badge">
+      <a href="<?= e($BCORP['url']) ?>" target="_blank" rel="noopener"><?= img_or_placeholder($BCORP['badge'],'Certified B Corporation','B CORP','#0d0d0d','#FF1493') ?></a>
+      <a class="bcorp-more" href="<?= e($BCORP['url']) ?>" target="_blank" rel="noopener"><?= tv('bcorp_more','Learn more at bcorp.com') ?></a>
+    </div>
     <div class="bcorp-copy">
-      <div class="eyebrow accent"><?= tv('env_bcorp_eyebrow','CERTIFIED B CORPORATION') ?></div>
+      <div class="eyebrow accent"><?= tv('env_bcorp_eyebrow','CERTIFIED B CORPORATION™') ?></div>
       <h2><?= tv('env_bcorp_h2','WE PUT IT<br>IN WRITING') ?></h2>
-      <p><?= tv('env_bcorp_p','B Corp certification means our work is assessed against independent standards for how we affect people and the planet — not just what we say, but what we can actually document. We carry that same thinking through the whole supply chain.') ?></p>
+      <p><?= tv('env_bcorp_p','B Corp™ certification means our work is assessed against independent standards for how we affect people and the planet — not just what we say, but what we can actually document. We carry that same thinking through the whole supply chain.') ?></p>
     </div>
   </div>
 </section>
