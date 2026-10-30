@@ -78,9 +78,9 @@
 'env_c3_p'=>'Kakaoen dyrkes i agroforestry-systemer, der kakaotrær vokser sammen med andre trær og planter. Det gir bedre bruk av eksisterende jordbruksarealer og bidrar til å redusere presset på skogen rundt Gola Rainforest, samtidig som Tradins programmer støtter restaurering og gjenplanting.',
 'env_c4_h'=>'Landsbyer, ikke bare gårder',
 'env_c4_p'=>'Ansvarlig kakaodyrking handler om mer enn selve gården. Gjennom lokale programmer støtter Tradin blant annet opplæring, utdanning og utvikling av lokalsamfunnene rundt kakaoproduksjonen. Målet er at verdiene som skapes skal komme flere til gode — ikke bare selve avlingen.',
-'env_bcorp_eyebrow'=>'SERTIFISERT B CORPORATION™',
+'env_bcorp_eyebrow'=>'SERTIFISERT B CORPORATION',
 'env_bcorp_h2'=>'VI SETTER DET<br>PÅ PAPIRET',
-'env_bcorp_p'=>'B Corp™-sertifiseringen betyr at arbeidet vårt blir vurdert etter uavhengige standarder for hvordan vi påvirker mennesker og planeten — ikke bare ut fra hva vi sier, men hva vi faktisk kan dokumentere. Den samme tankegangen tar vi med oss gjennom hele verdikjeden.',
+'env_bcorp_p'=>'B Corp-sertifiseringen betyr at arbeidet vårt blir vurdert etter uavhengige standarder for hvordan vi påvirker mennesker og planeten — ikke bare ut fra hva vi sier, men hva vi faktisk kan dokumentere. Den samme tankegangen tar vi med oss gjennom hele verdikjeden.',
 'env_proof_eyebrow'=>'BEVIS, IKKE LØFTER',
 'env_proof_h2'=>'DET VI STÅR FOR',
 'env_proof_p'=>'Vi har signert den norske <strong>Veilederen mot grønnvasking</strong> (SKIFT). Det forplikter oss til å være konkrete, åpne og etterrettelige når vi snakker om bærekraft. Her er noe av det vi kan dokumentere.',
@@ -194,7 +194,7 @@
 *Fra økologisk landbruk',
 'ing:Coffee Beans'=>'Rørsukker*, Kakaomasse*, Kakaosmør*, Havredrikkpulver* (havremel, salt), Mandler*, Kokosmelkpulver*, Kaffebønner*, Emulgator: Solsikkelecitin*, Bourbonvanilje*
 *Fra økologisk landbruk',
-'wtb_intro'=>'butikker i USA – og stadig flere. Søk på by eller postnummer, filtrer på delstat, eller la oss finne de nærmeste deg. I Norge finner du oss også hos MENY.',
+'wtb_intro'=>'butikker i Norge – og stadig flere. Søk på by eller postnummer, eller la oss finne de nærmeste deg.',
 'wtb_all'=>'Alle butikker',
 'env_co2_p'=>'Å droppe melk er noe av det mest effektive vi kan gjøre for å redusere klimaavtrykket fra sjokolade. Vår ligger på rundt <strong>0,7 kg CO<sub>2</sub>e per kilo ved fabrikk, før logistikk</strong> (målt med CarbonCloud) — mot <strong>4–13 kg CO<sub>2</sub>e</strong> for vanlig melkesjokolade. Samme nytelse. En brøkdel av avtrykket. Og vi jobber hele tiden for å få det enda lavere.',
 'alg:Creamy Melt'=>'Mandler, Hasselnøtter, Pistasj, Cashew, Peanøtter, Sesamfrø',
@@ -206,5 +206,6 @@
 'company_name'=>'VGAN chocolate AS',
 'company_addr'=>'Mogens Thorsens gate 13<br>0264 Oslo, Norge<br><span class="muted">Besøksadresse: Rosenholm Campus</span>',
 'retail_distrib'=>'Distribuert nasjonalt gjennom KeHE og UNFI.',
-'bcorp_more'=>'Les mer på bcorp.com',
+'wtb_statelabel'=>'By',
+'wtb_allstates'=>'Alle byer',
 ];

@@ -1,7 +1,9 @@
 <?php $pageTitle='Where to buy'; $pageDesc='Find VGAN dairy-free chocolate near you — in US natural and grocery stores including Sprouts and Hy-Vee, plus Amazon and Instacart.'; $page='wtb';
 require __DIR__.'/lib.php';
-$stores=get_stores();
+$isNO  = (current_lang()==='no');
+$stores = $isNO ? (json_decode(@file_get_contents(__DIR__.'/data/stores-no.json'), true) ?: get_stores()) : get_stores();
 foreach($stores as $k=>$s){ $stores[$k]['id']=substr(md5($s['n'].'|'.$s['a'].'|'.$s['z']),0,6); }
+if($isNO){ $pageDesc='Finn VGAN-sjokolade hos MENY og utvalgte butikker i Norge — søk på by eller postnummer.'; }
 $fArea   = trim($_GET['area'] ?? $_GET['q'] ?? '');
 $fState  = trim($_GET['state'] ?? $_GET['st'] ?? '');
 $fStores = array_values(array_filter(array_map('trim', explode(',', $_GET['stores'] ?? ''))));
@@ -21,7 +23,7 @@ include __DIR__.'/partials/header.php';
       Use my location
     </button>
     <div class="field"><label>Search city / ZIP / store</label><input id="q" type="search" placeholder="e.g. Brooklyn, 90210, Raley's" autocomplete="off"></div>
-    <div class="field"><label>State</label><select id="st"><option value="">All states</option></select></div>
+    <div class="field"><label><?= tv('wtb_statelabel','State') ?></label><select id="st"><option value=""><?= tv('wtb_allstates','All states') ?></option></select></div>
     <button class="btn-loc" id="pickBtn" type="button">Build ad link</button>
   </div>
 </section>
@@ -45,8 +47,9 @@ include __DIR__.'/partials/header.php';
 </div>
 
 <script>window.STORES = <?= json_encode($stores, JSON_UNESCAPED_UNICODE) ?>;
-window.STORE_FILTER = <?= json_encode(['q'=>$fArea,'state'=>$fState,'stores'=>$fStores], JSON_UNESCAPED_UNICODE) ?>;</script>
+window.STORE_FILTER = <?= json_encode(['q'=>$fArea,'state'=>$fState,'stores'=>$fStores], JSON_UNESCAPED_UNICODE) ?>;
+window.MAP = <?= json_encode($isNO ? ['c'=>[60.6,9.2],'z'=>5,'fitAll'=>true] : ['c'=>[39.5,-98.35],'z'=>4,'fitAll'=>false]) ?>;</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="assets/js/storefinder.js?v=6"></script>
+<script src="assets/js/storefinder.js?v=7"></script>
 
 <?php include __DIR__.'/partials/footer.php'; ?>
