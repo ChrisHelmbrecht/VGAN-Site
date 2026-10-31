@@ -195,4 +195,11 @@
 'retail_distrib'=>'Distribuido a nivel nacional a través de KeHE y UNFI.',
 'wtb_statelabel'=>'Estado',
 'wtb_allstates'=>'Todos los estados',
+'wtb_searchlabel'=>'Buscar ciudad / código postal / tienda',
+'wtb_searchph'=>'p. ej. Brooklyn, 90210, Raley\'s',
+'wtb_locate'=>'Usar mi ubicación',
+'wtb_locating'=>'Ubicando…',
+'wtb_located'=>'Ubicado — más cercanas primero',
+'wtb_locdenied'=>'No pudimos obtener tu ubicación. Permite el acceso o busca por ciudad o código postal.',
+'wtb_locunavail'=>'La ubicación no está disponible aquí. Busca por ciudad o código postal.',
 ];

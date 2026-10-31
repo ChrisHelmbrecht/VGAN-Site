@@ -37,6 +37,7 @@ h1,h2,h3{font-family:Bebas Neue,sans-serif;font-weight:400;letter-spacing:.02em;
 .nav .nav-cta{color:#fff;background:var(--accent);padding:8px 16px;border-radius:8px;font-weight:600}
 .nav .nav-cta:hover{filter:brightness(1.08)}
 .topbar .eyebrow{margin-left:auto;font-size:15px;letter-spacing:.16em;order:4}
+.navtoggle{display:none}
 @media(max-width:820px){
   .topbar .wrap{flex-wrap:wrap;height:auto;padding:14px 0;gap:10px}
   .logo-img{height:50px}
@@ -165,7 +166,7 @@ h1,h2,h3{font-family:Bebas Neue,sans-serif;font-weight:400;letter-spacing:.02em;
 
 /* ============ ADDITIONS (logo, ambassadors, sustainability, gallery) ============ */
 .brand{display:inline-flex;align-items:center;order:1}
-.navtoggle{display:none;order:2;background:none;border:0;cursor:pointer;padding:0}
+.navtoggle{order:2;background:none;border:0;cursor:pointer;padding:0}
 .logo-img{height:88px;width:auto;display:block}
 .logo-img.foot{height:40px;margin-bottom:14px}
 .link-arrow{display:inline-block;margin-top:18px;color:var(--accent);font-weight:600;font-size:15px}
@@ -452,6 +453,7 @@ h1,h2,h3{font-family:Bebas Neue,sans-serif;font-weight:400;letter-spacing:.02em;
 
 /* ============ store finder: ad-link builder ============ */
 .pickbar{position:fixed;left:0;right:0;bottom:0;z-index:900;background:#141414;border-top:1px solid var(--line);padding:12px 20px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;box-shadow:0 -8px 24px rgba(0,0,0,.4)}
+.pickbar[hidden]{display:none}
 .pickbar span{font-size:13px;color:var(--muted);white-space:nowrap}
 .pickbar input{flex:1;min-width:220px;max-width:520px;background:#0c0c0c;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:10px 12px;font-size:13px}
 .pickbar .btn{padding:10px 18px;font-size:14px}

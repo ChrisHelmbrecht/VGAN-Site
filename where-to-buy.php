@@ -20,9 +20,9 @@ include __DIR__.'/partials/header.php';
   <div class="controls">
     <button class="btn-loc" id="locBtn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-      Use my location
+      <?= tv('wtb_locate','Use my location') ?>
     </button>
-    <div class="field"><label>Search city / ZIP / store</label><input id="q" type="search" placeholder="e.g. Brooklyn, 90210, Raley's" autocomplete="off"></div>
+    <div class="field"><label><?= tv('wtb_searchlabel','Search city / ZIP / store') ?></label><input id="q" type="search" placeholder="<?= e(tv('wtb_searchph','e.g. Brooklyn, 90210, Raley\'s')) ?>" autocomplete="off"></div>
     <div class="field"><label><?= tv('wtb_statelabel','State') ?></label><select id="st"><option value=""><?= tv('wtb_allstates','All states') ?></option></select></div>
     <button class="btn-loc" id="pickBtn" type="button">Build ad link</button>
   </div>
@@ -48,8 +48,15 @@ include __DIR__.'/partials/header.php';
 
 <script>window.STORES = <?= json_encode($stores, JSON_UNESCAPED_UNICODE) ?>;
 window.STORE_FILTER = <?= json_encode(['q'=>$fArea,'state'=>$fState,'stores'=>$fStores], JSON_UNESCAPED_UNICODE) ?>;
-window.MAP = <?= json_encode($isNO ? ['c'=>[60.6,9.2],'z'=>5,'fitAll'=>true] : ['c'=>[39.5,-98.35],'z'=>4,'fitAll'=>false]) ?>;</script>
+window.MAP = <?= json_encode($isNO ? ['c'=>[60.6,9.2],'z'=>5,'fitAll'=>true] : ['c'=>[39.5,-98.35],'z'=>4,'fitAll'=>false]) ?>;
+window.WTB_I18N = <?= json_encode([
+  'locate'=>tv('wtb_locate','Use my location'),
+  'locating'=>tv('wtb_locating','Locating…'),
+  'located'=>tv('wtb_located','Located — nearest first'),
+  'denied'=>tv('wtb_locdenied','Couldn\'t get your location. Allow location access, or search by city or ZIP.'),
+  'unavail'=>tv('wtb_locunavail','Location isn\'t available here. Search by city or ZIP instead.'),
+], JSON_UNESCAPED_UNICODE) ?>;</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="assets/js/storefinder.js?v=7"></script>
+<script src="assets/js/storefinder.js?v=8"></script>
 
 <?php include __DIR__.'/partials/footer.php'; ?>

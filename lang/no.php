@@ -208,4 +208,11 @@
 'retail_distrib'=>'Distribuert nasjonalt gjennom KeHE og UNFI.',
 'wtb_statelabel'=>'By',
 'wtb_allstates'=>'Alle byer',
+'wtb_searchlabel'=>'Søk by / postnummer / butikk',
+'wtb_searchph'=>'f.eks. Oslo, 0264, Meny',
+'wtb_locate'=>'Bruk min posisjon',
+'wtb_locating'=>'Finner posisjon…',
+'wtb_located'=>'Funnet — nærmeste først',
+'wtb_locdenied'=>'Fant ikke posisjonen din. Tillat posisjon, eller søk på by eller postnummer.',
+'wtb_locunavail'=>'Posisjon er ikke tilgjengelig her. Søk på by eller postnummer i stedet.',
 ];

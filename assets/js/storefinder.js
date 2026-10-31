@@ -1,6 +1,7 @@
 /* VGAN store finder — reads window.STORES (injected by PHP) */
 (function(){
   const STORES = window.STORES || [];
+  var T=window.WTB_I18N||{};
   function sid(s){var str=((s.n||'')+'|'+(s.a||'')+'|'+(s.z||'')).toLowerCase(),h=0x811c9dc5;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=(h*0x01000193)>>>0;}return h.toString(36);}
   var _URLP=new URLSearchParams(location.search);
   var initQ=(_URLP.get('area')||_URLP.get('q')||'').trim();
@@ -88,16 +89,16 @@
   stSel.addEventListener('change',()=>{render();fit();syncURL();});
   document.getElementById('locBtn').addEventListener('click',function(){
     const b=this;
-    if(!navigator.geolocation){alert('Location isn\'t available here. Search by city or ZIP instead.');return;}
-    b.textContent='Locating…';
+    if(!navigator.geolocation){alert(T.unavail||'Location isn\'t available here. Search by city or ZIP instead.');return;}
+    b.textContent=T.locating||'Locating…';
     navigator.geolocation.getCurrentPosition(pos=>{
       userLoc={lat:pos.coords.latitude,lng:pos.coords.longitude};
       L.marker([userLoc.lat,userLoc.lng],{icon:youIcon,zIndexOffset:1000}).addTo(map);
-      b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Located — nearest first';
+      b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> '+(T.located||'Located \u2014 nearest first');
       render();
       const near=filtered().slice(0,8).map(s=>s._m);
       if(near.length)map.fitBounds(L.featureGroup([...near,L.marker([userLoc.lat,userLoc.lng])]).getBounds().pad(.25),{maxZoom:11});
-    },()=>{b.textContent='Use my location';alert('Couldn\'t get your location. Allow location access, or search by city or ZIP.');},
+    },()=>{b.textContent=T.locate||'Use my location';alert(T.denied||'Couldn\'t get your location. Allow location access, or search by city or ZIP.');},
     {enableHighAccuracy:true,timeout:8000});
   });
   function updatePick(){
