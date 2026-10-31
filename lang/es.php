@@ -202,4 +202,6 @@
 'wtb_located'=>'Ubicado — más cercanas primero',
 'wtb_locdenied'=>'No pudimos obtener tu ubicación. Permite el acceso o busca por ciudad o código postal.',
 'wtb_locunavail'=>'La ubicación no está disponible aquí. Busca por ciudad o código postal.',
+'banner_line'=>'¿No encuentras una tienda cerca?',
+'banner_cta'=>'Comprar en Amazon',
 ];

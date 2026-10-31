@@ -28,6 +28,9 @@ include __DIR__.'/partials/header.php';
   </div>
 </section>
 
+<!-- ============ SHOP BANNER ============ -->
+<?php include __DIR__.'/partials/shop-banner.php'; ?>
+
 <!-- ============ TRUST BAR ============ -->
 <section class="trustbar">
   <div class="wrap trustbar-inner">

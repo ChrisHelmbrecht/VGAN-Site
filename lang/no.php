@@ -215,4 +215,6 @@
 'wtb_located'=>'Funnet — nærmeste først',
 'wtb_locdenied'=>'Fant ikke posisjonen din. Tillat posisjon, eller søk på by eller postnummer.',
 'wtb_locunavail'=>'Posisjon er ikke tilgjengelig her. Søk på by eller postnummer i stedet.',
+'banner_line'=>'Finner du ikke en butikk i nærheten?',
+'banner_cta'=>'Kjøp hos MENY',
 ];
