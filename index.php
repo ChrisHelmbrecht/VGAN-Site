@@ -28,8 +28,6 @@ include __DIR__.'/partials/header.php';
   </div>
 </section>
 
-<!-- ============ SHOP BANNER ============ -->
-<?php include __DIR__.'/partials/shop-banner.php'; ?>
 
 <!-- ============ TRUST BAR ============ -->
 <section class="trustbar">
@@ -228,6 +226,9 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
     </div>
   </div>
 </section>
+
+<!-- ============ SHOP BANNER ============ -->
+<?php include __DIR__.'/partials/shop-banner.php'; ?>
 
 <!-- ============ NUTRITION / INGREDIENTS MODAL ============ -->
 <div class="modal" id="skuModal" hidden>
