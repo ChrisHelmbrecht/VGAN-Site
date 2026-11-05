@@ -1,0 +1,78 @@
+# =====================================================================
+# vganchocolate.com – .htaccess
+# Stand: 05.11.2026
+#
+# 1) Interne Dateien sperren
+# 2) Shopify-Altlasten ohne Gegenstück: 410 Gone (räumt den Google-Index auf)
+# 3) Alte Shopify-Seiten: 301 auf die neuen Seiten
+#    /es/... landet auf derselben Seite mit ?lang=es
+#
+# Grundlage: Server-Logs 24.08.–05.11.2026 (Googlebot, Bingbot und
+# Besucher aus Suchmaschinen, die auf 404 gelandet sind)
+# =====================================================================
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# ---------------------------------------------------------------------
+# 1) Interne Dateien und Ordner sind nicht für den Browser gedacht.
+#    PHP-Includes (require/include) funktionieren weiterhin.
+# ---------------------------------------------------------------------
+RewriteRule ^(config|lib)\.php$ - [F,L]
+RewriteRule ^(install\.sql|\.gitignore|\.git(/.*)?|\.env.*|composer\.(json|lock))$ - [F,L]
+RewriteRule ^(data|partials|lang)(/.*)?$ - [F,L]
+
+# ---------------------------------------------------------------------
+# 2) Shopify-Technik ohne neue Entsprechung: 410 Gone
+# ---------------------------------------------------------------------
+RewriteRule ^(es/)?cdn/ - [G,L]
+RewriteRule ^(es/)?(products|collections)\.json$ - [G,L]
+RewriteRule ^(es/)?collections/.+\.(json|atom)$ - [G,L]
+RewriteRule ^(es/)?products/.+\.(js|json|oembed|xml)$ - [G,L]
+RewriteRule ^(es/)?sitemap_.*\.xml$ - [G,L]
+RewriteRule ^(es/)?(checkout|cart\.js|cart\.json|products\.xml)$ - [G,L]
+RewriteRule ^(es/)?checkouts?/ - [G,L]
+RewriteRule ^(es/)?apps/ - [G,L]
+RewriteRule ^(es/)?blogs/.+\.atom$ - [G,L]
+# Kaputte Altlinks wie /pages/environmentrobots.txt
+RewriteRule ^(es/)?pages/environment[^/].*$ - [G,L]
+
+# ---------------------------------------------------------------------
+# 3) Alte Shopify-Seiten -> neue Seiten (301)
+#    Erst Sprache merken, dann Ziel bestimmen, am Ende einmal umleiten.
+#    Reihenfolge: allgemeine Regeln zuerst, spezielle danach
+#    (die letzte passende Regel gewinnt).
+# ---------------------------------------------------------------------
+RewriteRule ^es(/|$) - [E=VG_LANG:es]
+
+# Allgemein
+RewriteRule ^es/?$ - [E=VG_TO:/]
+RewriteRule ^(es/)?(products|collections)(/.*)?$ - [E=VG_TO:/]
+RewriteRule ^(es/)?search/?$ - [E=VG_TO:/]
+RewriteRule ^(es/)?blogs(/.*)?$ - [E=VG_TO:/]
+RewriteRule ^(es/)?blogs/news(/.*)?$ - [E=VG_TO:/story.php]
+RewriteRule ^(es/)?pages/[^/]+/?$ - [E=VG_TO:/story.php]
+RewriteRule ^(es/)?policies/[^/]+/?$ - [E=VG_TO:/terms.php]
+RewriteRule ^(es/)?(cart|account)(/.*)?$ - [E=VG_TO:/where-to-buy.php]
+
+# Speziell
+RewriteRule ^(es/)?pages/(contact|wholesale|partners)/?$ - [E=VG_TO:/contact.php]
+RewriteRule ^(es/)?pages/(environment|explore-our-ingredients)/?$ - [E=VG_TO:/environment.php]
+RewriteRule ^(es/)?collections/collection-for-footprint-page/?$ - [E=VG_TO:/environment.php]
+RewriteRule ^(es/)?blogs/news/vgan-ambitions-of-a-positive-footprint/?$ - [E=VG_TO:/environment.php]
+RewriteRule ^(es/)?pages/store-finder/?$ - [E=VG_TO:/where-to-buy.php]
+RewriteRule ^(es/)?blogs/news/vgan-chocolate-at-the-store-in-salt-lake-city/?$ - [E=VG_TO:/where-to-buy.php]
+RewriteRule ^(es/)?policies/privacy-policy/?$ - [E=VG_TO:/privacy.php]
+RewriteRule ^(es/)?pages/ccpa-opt-out/?$ - [E=VG_TO:/privacy.php]
+
+# Umleitung ausführen
+RewriteCond %{ENV:VG_TO} ^(.+)$
+RewriteCond %{ENV:VG_LANG} ^es$
+RewriteRule ^ %{ENV:VG_TO}?lang=es [R=301,L,QSA,NE]
+
+RewriteCond %{ENV:VG_TO} ^(.+)$
+RewriteRule ^ %{ENV:VG_TO} [R=301,L,NE]
+</IfModule>
