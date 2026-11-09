@@ -39,7 +39,7 @@
   var has=document.cookie.split('; ').some(function(r){return r.indexOf('cookie_consent=')===0;});
   if(!has) b.hidden=false;
   function set(v){ document.cookie='cookie_consent='+v+';path=/;max-age=31536000'; b.hidden=true; }
-  document.getElementById('cookieAccept').addEventListener('click',function(){set('yes');});
+  document.getElementById('cookieAccept').addEventListener('click',function(){set('yes'); if(window.vganPixelStart) window.vganPixelStart();});
   document.getElementById('cookieDecline').addEventListener('click',function(){set('no');});
 })();
 </script>

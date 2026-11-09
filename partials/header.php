@@ -61,6 +61,7 @@
  '@context'=>'https://schema.org','@type'=>'WebSite','@id'=>$BASE.'#website',
  'url'=>$BASE,'name'=>'VGAN','publisher'=>['@id'=>$BASE.'#organization'],'inLanguage'=>['en','no','es'],
 ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?></script>
+<?php include __DIR__.'/meta-pixel.php'; ?>
 </head>
 <body>
 <header class="topbar"><div class="wrap">
