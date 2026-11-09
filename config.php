@@ -24,6 +24,20 @@ $COMPANY = [
   'email' => 'contact@eatvgan.com',
 ];
 
+/* ---- NORWEGIAN COMPANY ------------------------------------
+   Data controller for visitors in Norway/the EEA. Used by the
+   privacy policy and the Organization schema in the header. */
+$COMPANY_NO = [
+  'name'  => 'VGAN chocolate AS',
+  'addr'  => ['Mogens Thorsens gate 13', '0264 Oslo'],
+  'email' => 'contact@eatvgan.com',
+];
+
+/* ---- ADVERTISING / TRACKING -------------------------------
+   Meta Pixel. Empty string disables it site-wide. The pixel only
+   ever loads after consent (see partials/meta-pixel.php). */
+$META_PIXEL_ID = '1144841104908899';
+
 /* ---- DATABASE (optional) ---------------------------------- */
 define('USE_DB', false);
 define('DB_HOST', 'localhost');

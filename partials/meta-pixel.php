@@ -1,11 +1,20 @@
 <?php
-/* Meta Pixel — Dataset "VGAN US Web" (1144841104908899), Werbekonto VGAN AS.
-   Angelegt 05.11.2026 für die US-Instagram-Kampagnen.
+/* Meta Pixel — Dataset "VGAN US Web", Werbekonto VGAN AS.
+   ID steht in config.php ($META_PIXEL_ID); leer = Pixel aus.
 
-   Der Loader wird immer definiert, ausgeführt aber nur nach Einwilligung
-   (cookie_consent=yes). footer.php ruft vganPixelStart() direkt beim Klick
-   auf "Accept all" auf, damit der Landing-Aufruf einer Anzeige nicht
-   verloren geht, nur weil die Einwilligung erst auf dieser Seite erfolgt.
+   Es gibt zwei Sperren, und beide müssen offen sein:
+
+   1. Einwilligung. cookie_consent=yes muss gesetzt sein. Ohne das wird
+      der Loader zwar definiert, aber nicht ausgeführt. footer.php ruft
+      vganPixelStart() direkt beim Klick auf "Accept all" auf, damit der
+      Landing-Aufruf einer Anzeige nicht verloren geht.
+      (Norwegen: ekomloven § 3-15, seit 1.1.2025 echtes Opt-in.)
+
+   2. Global Privacy Control. Sendet der Browser Sec-GPC: 1, gilt das in
+      zwölf US-Bundesstaaten seit 1.1.2026 als wirksamer Widerspruch gegen
+      Targeted Advertising. Wir prüfen den Header serverseitig und das
+      navigator-Flag noch einmal im Browser — ein zwischenzeitlich
+      gesetztes Consent-Cookie darf das nicht aushebeln.
 
    Auf where-to-buy.php ($page==='wtb') kommen zwei Events dazu:
    - StoreLocatorView: trennt bezahlten von organischem Traffic und hängt
@@ -13,14 +22,20 @@
    - FindLocation: Meta-Standardevent, nur wenn die Seite mit einer
      Store-Vorauswahl aufgerufen wurde. Darauf können Kampagnen optimieren. */
 
-$PIXEL_ID     = '1144841104908899';
-$pixelConsent = (($_COOKIE['cookie_consent'] ?? '') === 'yes');
+$pixelId      = $META_PIXEL_ID ?? '';
+$pixelGpc     = (($_SERVER['HTTP_SEC_GPC'] ?? '') === '1');
+$pixelConsent = (!$pixelGpc && ($_COOKIE['cookie_consent'] ?? '') === 'yes');
+
+if ($pixelId !== '' && !$pixelGpc):
 ?>
 <script>
 window.vganPixelStart = (function(){
   var started = false;
   return function(){
-    if (started) return; started = true;
+    if (started) return;
+    /* Global Privacy Control — zählt als Widerspruch, schlägt Consent */
+    if (navigator.globalPrivacyControl === true) return;
+    started = true;
 
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -31,7 +46,7 @@ window.vganPixelStart = (function(){
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '<?= $PIXEL_ID ?>');
+    fbq('init', '<?= e($pixelId) ?>');
     fbq('track', 'PageView');
 <?php if (($page ?? '') === 'wtb'): ?>
 
@@ -60,5 +75,6 @@ window.vganPixelStart();
 </script>
 <?php if ($pixelConsent): ?>
 <noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=<?= $PIXEL_ID ?>&ev=PageView&noscript=1"></noscript>
+src="https://www.facebook.com/tr?id=<?= e($pixelId) ?>&ev=PageView&noscript=1"></noscript>
+<?php endif; ?>
 <?php endif; ?>

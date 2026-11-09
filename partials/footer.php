@@ -23,11 +23,11 @@
 </div>
 <div class="wrap foot-legal">
   <span>&copy; <?= date('Y') ?> <?= company_name() ?>. <?= tv('foot_made','Made with joyful rebellion.') ?></span>
-  <span class="foot-legal-links"><?= lang_switcher('langsw foot') ?> <a href="privacy.php"><?= tv('foot_privacy','Privacy') ?></a> &middot; <a href="terms.php"><?= tv('foot_terms','Terms') ?></a> &middot; <a href="contact.php"><?= tv('foot_contact2','Contact') ?></a></span>
+  <span class="foot-legal-links"><?= lang_switcher('langsw foot') ?> <a href="privacy.php"><?= tv('foot_privacy','Privacy') ?></a> &middot; <a href="terms.php"><?= tv('foot_terms','Terms') ?></a> &middot; <a href="#" id="cookieSettings"><?= tv('foot_cookie_settings','Cookie settings') ?></a> &middot; <a href="contact.php"><?= tv('foot_contact2','Contact') ?></a></span>
 </div>
 </footer>
 <div class="cookie-banner" id="cookieBanner" hidden>
-  <p><?= tv('cookie_text',"We use cookies to run this site and to understand how it\'s used. You can accept these, or keep only the essential ones.") ?> <a href="privacy.php"><?= tv('cookie_more','Learn more') ?></a></p>
+  <p><?= tv('cookie_text',"We use essential cookies to run this site. With your consent we also use the Meta Pixel, which tells Meta Platforms Ireland that you visited us so we can measure our Instagram ads and show ads to people like you. You can accept these, or keep only the essential ones &mdash; and change your mind at any time.") ?> <a href="privacy.php"><?= tv('cookie_more','Learn more') ?></a></p>
   <div class="cookie-btns">
     <button id="cookieDecline" class="btn ghost"><?= tv('cookie_decline','Only essential') ?></button>
     <button id="cookieAccept" class="btn"><?= tv('cookie_accept','Accept all') ?></button>
@@ -39,6 +39,14 @@
   var has=document.cookie.split('; ').some(function(r){return r.indexOf('cookie_consent=')===0;});
   if(!has) b.hidden=false;
   function set(v){ document.cookie='cookie_consent='+v+';path=/;max-age=31536000'; b.hidden=true; }
+
+  /* Reopening the banner is how consent is withdrawn — GDPR art. 7(3) and
+     ekomloven § 3-15 require that to be as easy as giving it. Also serves as
+     the opt-out link the US state privacy laws expect. */
+  window.vganCookieSettings=function(){ b.hidden=false; };
+  var link=document.getElementById('cookieSettings');
+  if(link) link.addEventListener('click',function(ev){ ev.preventDefault(); window.vganCookieSettings(); });
+
   document.getElementById('cookieAccept').addEventListener('click',function(){set('yes'); if(window.vganPixelStart) window.vganPixelStart();});
   document.getElementById('cookieDecline').addEventListener('click',function(){set('no');});
 })();
