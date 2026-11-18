@@ -166,7 +166,7 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
     <div class="sustain-copy">
       <div class="eyebrow accent"><?= tv('sustain_eyebrow','FROM SOIL TO SHELF') ?></div>
       <h2><?= tv('sustain_h2_l1','GOOD CHOCOLATE') ?><br><?= tv('sustain_h2_l2',"SHOULDN'T COST") ?><br><?= tv('sustain_h2_l3','THE EARTH') ?></h2>
-      <p><?= tv('sustain_p','Certified-organic cocoa from Sierra Leone and the Democratic Republic of the Congo, sourced through our long-standing partner Tradin Organic — with lasting relationships in the growing regions, traceability through the supply chain, and programmes supporting farmers, communities and forests.') ?></p>
+      <p><?= tv('sustain_p','Certified-organic cocoa from the Democratic Republic of the Congo and Sierra Leone, sourced exclusively through our partner Tradin Organic — traceable to its origin, under binding fair-labour rules, and linked to programmes that support farmers and their communities.') ?></p>
       <a class="btn" href="environment.php"><?= tv('sustain_cta',"See how it's made") ?></a>
     </div>
     <div class="co2-card">
@@ -303,7 +303,9 @@ document.querySelectorAll('.vid-play').forEach(function(btn){
   [tv('faq_q2','Is it organic?'), tv('faq_a2','Yes. We use certified-organic cocoa and our bars are USDA Organic.')],
   [tv('faq_q3','Is it gluten-free and non-GMO?'), tv('faq_a3','Yes. All six bars are gluten-free and made without GMO ingredients.')],
   [tv('faq_q4','What flavours are there?'), tv('faq_a4','Six: Creamy Melt, Pink Love, Salty Almonds, Salty Caramel, Dark, and Coffee Beans.')],
-  [tv('faq_q5','Where can I buy VGAN?'), tv('faq_a5','In US natural and grocery stores including Sprouts and Hy-Vee, and online via Amazon and Instacart. Use our store finder to find a shop near you.')],
+  [tv('faq_q5','Where can I buy VGAN?'), tv('faq_a5','In US natural and grocery stores including Hy-Vee and Raley\'s, and online via Amazon and Instacart. Use our store finder to find a shop near you.')],
+  [tv('faq_q6','Where does VGAN\'s cocoa come from?'), tv('faq_a6','From the Democratic Republic of the Congo and Sierra Leone, sourced exclusively through our partner Tradin Organic. All of our cocoa butter comes from the DR Congo; our cocoa mass is 70% DR Congo and 30% Sierra Leone. Every purchase is traceable to its origin.')],
+  [tv('faq_q7','How does VGAN handle child labour and fair pay in its cocoa?'), tv('faq_a7','Our Supplier Code of Conduct requires fair wages and prohibits child labour and forced labour — for our suppliers and their own supply chains. Our cocoa partner Tradin Organic adds farmer premiums, income initiatives and child-protection partnerships at origin. Suppliers that fall short must take corrective action, or we end the relationship.')],
 ]; ?>
 <section class="section faq-sec">
   <div class="wrap">

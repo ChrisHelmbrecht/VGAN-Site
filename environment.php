@@ -1,4 +1,4 @@
-<?php $pageTitle='Sustainability — from soil to shelf'; $pageDesc='How VGAN makes chocolate that\'s lighter on the planet: certified-organic, traceable cocoa, about 0.7 kg CO2e per kilo, B Corp certified — and no greenwashing.'; $page='env';
+<?php $pageTitle='Sustainability — from soil to shelf'; $pageDesc='How VGAN makes chocolate that\'s lighter on the planet: certified-organic cocoa traceable to its origin, binding fair-labour rules for suppliers, about 0.7 kg CO2e per kilo, B Corp certified — and no greenwashing.'; $page='env';
 require __DIR__.'/lib.php';
 include __DIR__.'/partials/header.php';
 ?>
@@ -29,29 +29,67 @@ include __DIR__.'/partials/header.php';
 <section class="section prose-sec">
   <div class="wrap prose">
     <div class="eyebrow accent"><?= tv('env_cocoa_eyebrow','OUR COCOA') ?></div>
-    <h2><?= tv('env_cocoa_h2','THE SAME REGIONS,<br>LASTING RELATIONSHIPS') ?></h2>
-    <p><?= tv('env_cocoa_p1','Our cocoa comes from Sierra Leone and the Democratic Republic of the Congo, through our long-standing partner <a href="https://www.tradinorganic.com" target="_blank" rel="noopener">Tradin Organic</a> in the Netherlands. We buy from established cooperatives and growing communities in the same regions over time. The cocoa is traceable through the supply chain and processed at Tradin\'s own facility in the Netherlands — so we have real control over where it comes from, right from the start.') ?></p>
-    <p><?= tv('env_cocoa_p2','But traceability is about more than knowing where the beans come from. Through Tradin\'s programmes, farmers are paid above the local market level, with a premium for organic cocoa. There is systematic work to prevent and detect child and forced labour, while local savings groups help build more financial security between harvests. No big words — just long-term relationships, traceability and better conditions, season after season.') ?></p>
+    <h2><?= tv('env_cocoa_h2','TWO ORIGINS.<br>ONE CLOSE PARTNER.') ?></h2>
+    <p><?= tv('env_cocoa_p1','Our cocoa comes from two origins: the Democratic Republic of the Congo and Sierra Leone. Since 2025 we have sourced it exclusively through <a href="https://www.tradinorganic.com" target="_blank" rel="noopener">Tradin Organic</a>, via Tradin\'s own cocoa networks in both countries. It\'s a close, ongoing partnership — not cocoa bought on the spot market — and every purchase is traceable to its origin.') ?></p>
+    <p><?= tv('env_cocoa_p2','But traceability is only the start. Tradin\'s programmes connect our cocoa to the people who grow it: premiums for farmers and their communities, training in agroforestry, initiatives to raise farmer income, and village savings groups that give families — and women in particular — more financial security between harvests. No big words — just long-term relationships, traceability and better conditions, season after season.') ?></p>
+
+    <div class="feature-row">
+      <div class="feature">
+        <h3><?= tv('env_orig1_h','Cocoa butter: 100% DR Congo') ?></h3>
+        <p><?= tv('env_orig1_p','All of the organic cocoa butter in our bars comes from the Democratic Republic of the Congo.') ?></p>
+      </div>
+      <div class="feature">
+        <h3><?= tv('env_orig2_h','Cocoa mass: 70% DR Congo, 30% Sierra Leone') ?></h3>
+        <p><?= tv('env_orig2_p','Our organic cocoa mass is split between both origins. How much of each ends up in a bar depends on its recipe.') ?></p>
+      </div>
+    </div>
 
     <div class="feature-row">
       <div class="feature">
         <h3><?= tv('env_c1_h','Certified organic') ?></h3>
-        <p><?= tv('env_c1_p','Grown to certified-organic standards, without synthetic pesticides or fertilisers. Our bars are USDA Organic — organic all the way through.') ?></p>
+        <p><?= tv('env_c1_p','Our cocoa is grown to certified-organic standards, without synthetic pesticides or fertilisers, and our bars are USDA Organic.') ?></p>
       </div>
       <div class="feature">
-        <h3><?= tv('env_c2_h','Low in heavy metals') ?></h3>
-        <p><?= tv('env_c2_p','Cocoa from Sierra Leone naturally has low cadmium levels compared with cocoa from many other origins. We test it regularly for both cadmium and lead, so we can follow the levels from raw bean to finished bar.') ?></p>
+        <h3><?= tv('env_c2_h','Mapped, farm by farm') ?></h3>
+        <p><?= tv('env_c2_p','In Sierra Leone, farms are recorded with digital traceability and geolocation. In the DR Congo, farm mapping is part of a documented environmental due-diligence system. We know where our cocoa grows — not just which country it comes from.') ?></p>
       </div>
       <div class="feature">
-        <h3><?= tv('env_c3_h','Forest kept standing') ?></h3>
-        <p><?= tv('env_c3_p','Cocoa is grown in agroforestry systems, where cocoa trees grow alongside other trees and plants. That makes better use of existing farmland and helps ease pressure on the forest around the Gola Rainforest, while Tradin\'s programmes support restoration and replanting.') ?></p>
+        <h3><?= tv('env_c3_h','Checked for forest risk') ?></h3>
+        <p><?= tv('env_c3_p','Cocoa is grown in agroforestry systems, where cocoa trees share the land with other trees and plants. In both origins, farms are checked for forest and protected-area risk.') ?></p>
       </div>
       <div class="feature">
         <h3><?= tv('env_c4_h','Villages, not just farms') ?></h3>
-        <p><?= tv('env_c4_p','Responsible cocoa growing is about more than the farm itself. Through local programmes, Tradin supports training, education and community development around cocoa production — so the value created reaches more people, not just the harvest.') ?></p>
+        <p><?= tv('env_c4_p','In Sierra Leone, Tradin works through local cooperatives on farmer training, income initiatives, village savings groups and child-protection partnerships. In the DR Congo, its partnership with Esco Kivu includes community premiums and education initiatives. The aim: value that reaches whole communities, not just the harvest.') ?></p>
       </div>
     </div>
     <p class="prose-note"><?= tv('env_cocoa_note','Want the detail behind any of this? Our partner publishes their sourcing and sustainability work in full at <a href="https://www.tradinorganic.com/sourcing/own-projects/sierra-leone-organic-cocoa-beans" target="_blank" rel="noopener">tradinorganic.com</a>.') ?></p>
+  </div>
+</section>
+
+<!-- HOW WE SOURCE -->
+<section class="section prose-sec">
+  <div class="wrap prose">
+    <div class="eyebrow accent"><?= tv('env_src_eyebrow','HOW WE SOURCE') ?></div>
+    <h2><?= tv('env_src_h2','RULES,<br>NOT DONATIONS') ?></h2>
+    <p><?= tv('env_src_p','Fair labour and better livelihoods aren\'t a side project for us. They\'re conditions for doing business with us — for every bar we make. Here\'s how that works in practice.') ?></p>
+    <div class="feature-row">
+      <div class="feature">
+        <h3><?= tv('env_s1_h','A binding Code of Conduct') ?></h3>
+        <p><?= tv('env_s1_p','Our Supplier Code of Conduct requires fair wages and working hours and safe, dignified working conditions, and it prohibits child labour, forced labour, discrimination and harassment. It applies to our suppliers\' own supply chains too.') ?></p>
+      </div>
+      <div class="feature">
+        <h3><?= tv('env_s2_h','Checked, not assumed') ?></h3>
+        <p><?= tv('env_s2_p','Suppliers are qualified before we work with them and reviewed over time — through documented traceability, supplier reporting and recognised third-party certification where it applies. If a supplier falls short, we require corrective action or end the relationship.') ?></p>
+      </div>
+      <div class="feature">
+        <h3><?= tv('env_s3_h','Fair pay is a purchasing rule') ?></h3>
+        <p><?= tv('env_s3_p','We support fair pay for cocoa farmers through responsible pricing and premiums, long-term relationships and a sourcing partner with farmer-support programmes on the ground.') ?></p>
+      </div>
+      <div class="feature">
+        <h3><?= tv('env_s4_h','Sustainability on our board') ?></h3>
+        <p><?= tv('env_s4_p','Anne Floor van Dalfsen, Global Sustainability Manager at Tradin Organic, sits on the Board of Directors of VGAN chocolate AS — a direct line between the programmes at origin and the decisions we make.') ?></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -84,7 +122,7 @@ include __DIR__.'/partials/header.php';
       </div>
       <div class="feature">
         <h3><?= tv('env_p2_h','Better conditions for cocoa farmers') ?></h3>
-        <p><?= tv('env_p2_p','Through Tradin Organic and our work with <a href="https://fairfood.org" target="_blank" rel="noopener">Fairfood</a>, we work toward greater traceability in the cocoa chain and better economic conditions for the people who grow our cocoa.') ?></p>
+        <p><?= tv('env_p2_p','Every cocoa purchase runs through Tradin Organic and is tied to its farmer-income and community programmes in the DR Congo and Sierra Leone — under the labour and wage requirements of our Supplier Code of Conduct.') ?></p>
       </div>
       <div class="feature">
         <h3><?= tv('env_p3_h','Less plastic. More recyclable.') ?></h3>

@@ -1,4 +1,4 @@
-<?php $pageTitle='Where to buy'; $pageDesc='Find VGAN dairy-free chocolate near you — in US natural and grocery stores including Sprouts and Hy-Vee, plus Amazon and Instacart.'; $page='wtb';
+<?php $pageTitle='Where to buy'; $pageDesc='Find VGAN dairy-free chocolate near you — in US natural and grocery stores including Hy-Vee and Raley\'s, plus Amazon and Instacart.'; $page='wtb';
 require __DIR__.'/lib.php';
 $isNO  = (current_lang()==='no');
 $stores = $isNO ? (json_decode(@file_get_contents(__DIR__.'/data/stores-no.json'), true) ?: get_stores()) : get_stores();
